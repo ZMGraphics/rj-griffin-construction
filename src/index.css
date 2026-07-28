@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Archivo Black', sans-serif;
+  --font-sans: 'Karla', sans-serif;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-shine: shine 6s linear infinite;
+  --animate-pulse-slow: pulseSlow 4s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes shine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Karla', system-ui, sans-serif; background: #0a0a0a; color: #f5f5f5; }
+
+.font-display { font-family: 'Archivo Black', sans-serif; letter-spacing: -0.01em; }
+
+/* Chrome/silver text effect */
+.text-chrome {
+  background: linear-gradient(180deg, #ffffff 0%, #e0e0e0 20%, #a0a0a0 45%, #6a6a6a 65%, #a0a0a0 85%, #d8d8d8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animated shine sweep for hero title */
+.text-shine {
+  background: linear-gradient(90deg, #6a6a6a 0%, #ffffff 45%, #ffffff 55%, #6a6a6a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: shine 6s linear infinite;
+}
+
+/* Diamond plate pattern for accent borders */
+.bg-plate {
+  background-color: #111;
+  background-image:
+    linear-gradient(45deg, #1a1a1a 25%, transparent 25%),
+    linear-gradient(-45deg, #1a1a1a 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1a1a1a 75%),
+    linear-gradient(-45deg, transparent 75%, #1a1a1a 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Grain overlay for cinematic feel */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+.pb-safe { padding-bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: linear-gradient(#8a8a8a, #3a3a3a); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(#c0c0c0, #4a4a4a); }
