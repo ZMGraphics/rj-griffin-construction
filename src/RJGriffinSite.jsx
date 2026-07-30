@@ -113,7 +113,7 @@ const Icon = ({ name, className = 'w-5 h-5' }) => {
    HELPERS
    ========================================================================== */
 
-const Reveal = ({ children, delay = 0, y = 12, className = '' }) => {
+const Reveal = ({ children, delay = 0, y = 10, className = '' }) => {
   const reduce = useReducedMotion();
   if (reduce) return <div className={className}>{children}</div>;
   return (
@@ -122,7 +122,7 @@ const Reveal = ({ children, delay = 0, y = 12, className = '' }) => {
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.9, delay, ease: [0.22, 0.61, 0.36, 1] }}
+      transition={{ duration: 0.8, delay, ease: [0.22, 0.61, 0.36, 1] }}
     >
       {children}
     </motion.div>
@@ -146,7 +146,7 @@ const SectionHeader = ({ number, kicker, title, lede, align = 'left', maxTitleWi
   <div className={`${align === 'center' ? 'mx-auto text-center' : ''} max-w-3xl`}>
     <Eyebrow number={number} label={kicker} align={align} />
     <h2
-      className="font-display font-semibold text-[26px] sm:text-[30px] md:text-[34px] lg:text-[38px] leading-[1.2] tracking-[-0.02em] text-[#F5F3EE] mt-6"
+      className="font-display font-semibold text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] leading-[1.22] tracking-[-0.02em] text-[#F5F3EE] mt-6"
       style={{ maxWidth: maxTitleWidth }}
     >
       {title}
@@ -262,7 +262,7 @@ function Header() {
           <a href={`tel:${BUSINESS.contacts.ron.tel}`} className="text-[13px] font-medium text-white/75 hover:text-[#C9A96A] transition-colors tabular">
             {BUSINESS.contacts.ron.phone}
           </a>
-          <a href="#contact" className="btn btn-primary">
+          <a href="#contact" className="btn btn-secondary">
             Request estimate
             <span className="arrow-slide"><Icon name="arrow" className="w-3 h-3" /></span>
           </a>
@@ -295,12 +295,12 @@ function Header() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setMenuOpen(false)}
-                  className="font-display font-semibold text-white text-[22px] py-3 border-b border-white/[0.06]"
+                  className="font-display font-semibold text-white text-[22px] py-3 border-b border-white/[0.05]"
                 >
                   {l.label}
                 </a>
               ))}
-              <div className="mt-6 flex items-center justify-between border-t border-white/[0.06] pt-6">
+              <div className="mt-6 flex items-center justify-between border-t border-white/[0.05] pt-6">
                 <span className="kicker">Call Ron</span>
                 <a href={`tel:${BUSINESS.contacts.ron.tel}`} className="font-display font-semibold text-[#C9A96A] text-lg tabular">{BUSINESS.contacts.ron.phone}</a>
               </div>
@@ -322,70 +322,71 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-[100svh] overflow-hidden bg-black grain">
-      <div className="absolute inset-0">
-        <img
-          src="/images/site/hero.jpg"
-          alt=""
-          aria-hidden="true"
-          loading="eager"
-          fetchpriority="high"
-          className="w-full h-full object-cover object-[center_38%] scale-[1.03]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-[#0A0A0A]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/60 to-black/20" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.55)_100%)]" />
-      </div>
-
-      <div className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 min-h-[100svh] flex flex-col justify-center pt-36 md:pt-44 pb-28 md:pb-32">
-        <Reveal>
-          <Eyebrow label="Rochester, NY · Since 1986" />
-        </Reveal>
-
-        <Reveal delay={0.08}>
-          <h1 className="font-display font-bold text-[30px] sm:text-[36px] md:text-[44px] lg:text-[52px] xl:text-[58px] leading-[1.14] tracking-[-0.025em] text-[#F5F3EE] mt-7 max-w-3xl">
-            Building homes and rooms<br className="hidden sm:block" /> that stand the test of time.
-          </h1>
-        </Reveal>
-
-        <Reveal delay={0.15}>
-          <p className="prose-lede text-white/72 mt-7 max-w-xl">
-            R.J. Griffin Construction is a family-run general contractor.
-            Kitchens, baths, additions, and basement egress across the Rochester
-            area — delivered by our own crews, start to finish. Since 1986.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.22}>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-10 mb-20">
-            <a href="#contact" className="btn btn-primary">
-              Start your project
-              <span className="arrow-slide"><Icon name="arrow" className="w-3 h-3" /></span>
-            </a>
-            <a href={`tel:${BUSINESS.contacts.ron.tel}`} className="btn btn-secondary">
-              <Icon name="phone" className="w-3.5 h-3.5" />
-              Call Ron · {BUSINESS.contacts.ron.phone}
-            </a>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.3}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-4xl mt-auto pt-10 border-t border-white/[0.08]">
-            {[
-              { n: 40, s: '+', l: 'Years building' },
-              { n: 1000, s: '+', l: 'Projects completed' },
-              { n: 5, s: '.0', l: 'Facebook rating' },
-              { n: 100, s: '%', l: 'Own-crew delivery' },
-            ].map((s) => (
-              <div key={s.l}>
-                <div className="font-display font-semibold text-[28px] md:text-[36px] text-[#F5F3EE] leading-none">
-                  <Counter end={s.n} suffix={s.s} />
-                </div>
-                <div className="text-[11px] tracking-[0.1em] text-white/45 mt-3 font-medium">{s.l}</div>
+    <section id="top" className="relative bg-[#0A0A0A]">
+      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[100svh]">
+        {/* Left panel — content, dark */}
+        <div className="lg:col-span-5 xl:col-span-5 relative flex flex-col justify-between px-6 sm:px-10 lg:px-14 xl:px-20 pt-32 lg:pt-40 pb-16 lg:pb-14 order-2 lg:order-1">
+          <div className="max-w-[520px]">
+            <Reveal>
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-px bg-[#C9A96A]" />
+                <span className="text-[11px] font-medium tracking-[0.14em] text-white/55">R.J. Griffin Construction, LLC</span>
               </div>
-            ))}
+            </Reveal>
+
+            <Reveal delay={0.08}>
+              <h1 className="font-display font-bold text-[36px] sm:text-[42px] lg:text-[48px] xl:text-[56px] leading-[1.08] tracking-[-0.025em] text-[#F5F3EE] mt-8">
+                Building homes<br />that outlast us.
+              </h1>
+            </Reveal>
+
+            <Reveal delay={0.15}>
+              <p className="prose-lede text-white/68 mt-7">
+                A family-run general contractor in Spencerport, NY —
+                kitchens, baths, additions, and basement egress across the
+                Rochester area for forty years. Our own crews, start to finish.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="mt-10">
+                <a href="#contact" className="btn btn-secondary">
+                  Request an estimate
+                  <span className="arrow-slide"><Icon name="arrow" className="w-3 h-3" /></span>
+                </a>
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
+
+          {/* Bottom whisper — replaces the stats grid; single hairline row */}
+          <Reveal delay={0.28}>
+            <div className="mt-16 pt-6 border-t border-white/[0.05] flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-medium text-white/45">
+              <span className="text-[#C9A96A] tabular"><Counter end={40} suffix="+ years" /></span>
+              <span className="w-1 h-1 rounded-full bg-white/15" />
+              <span>A+ BBB accredited</span>
+              <span className="w-1 h-1 rounded-full bg-white/15" />
+              <span>Family owned</span>
+              <span className="w-1 h-1 rounded-full bg-white/15" />
+              <span>Own crews</span>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Right panel — photograph as photograph */}
+        <div className="lg:col-span-7 xl:col-span-7 relative overflow-hidden bg-[#0A0A0A] min-h-[52vh] lg:min-h-full order-1 lg:order-2">
+          <img
+            src="/images/site/hero.jpg"
+            alt="R.J. Griffin Construction — recent kitchen remodel, Rochester NY"
+            loading="eager"
+            fetchpriority="high"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Very quiet bottom fade only — for caption legibility */}
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+          <div className="absolute bottom-6 right-6 lg:bottom-8 lg:right-8 text-[10px] tracking-[0.14em] text-white/70 font-medium">
+            Recent work · Kitchen · Rochester
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -805,8 +806,8 @@ function About() {
         <div className="lg:col-span-7 order-1 lg:order-2">
           <Reveal>
             <Eyebrow number="04" label="About" />
-            <h2 className="font-display font-semibold text-[26px] sm:text-[32px] lg:text-[40px] leading-[1.18] tracking-[-0.02em] text-[#F5F3EE] mt-6 max-w-[22ch]">
-              Forty years of family-run craftsmanship in Rochester.
+            <h2 className="font-display font-semibold text-[26px] sm:text-[30px] lg:text-[36px] leading-[1.2] tracking-[-0.02em] text-[#F5F3EE] mt-6 max-w-[18ch]">
+              Forty years, one family.
             </h2>
           </Reveal>
           <div className="mt-8 space-y-5 max-w-xl">
@@ -1021,8 +1022,8 @@ function Contact() {
         <div className="lg:col-span-5">
           <Reveal>
             <Eyebrow number="06" label="Start a project" />
-            <h2 className="font-display font-semibold text-[26px] sm:text-[32px] lg:text-[40px] leading-[1.18] tracking-[-0.02em] text-[#F5F3EE] mt-6 max-w-[16ch]">
-              Get in touch with our team.
+            <h2 className="font-display font-semibold text-[26px] sm:text-[30px] lg:text-[36px] leading-[1.2] tracking-[-0.02em] text-[#F5F3EE] mt-6 max-w-[14ch]">
+              Start a conversation.
             </h2>
           </Reveal>
           <Reveal delay={0.05}>
@@ -1178,7 +1179,7 @@ function Footer() {
   return (
     <footer className="relative bg-[#070707] border-t border-white/[0.05] pt-24 md:pt-32 pb-10">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 pb-16 md:pb-24 border-b border-white/[0.06]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 pb-16 md:pb-24 border-b border-white/[0.05]">
           <div className="lg:col-span-6">
             <div className="flex items-center gap-4">
               <div className="h-14 w-14 md:h-16 md:w-16 overflow-hidden ring-1 ring-[#C9A96A]/20 shrink-0">
@@ -1202,7 +1203,7 @@ function Footer() {
               <span>Locally owned</span>
             </div>
           </div>
-          <div className="lg:col-span-6 lg:pl-10 lg:border-l border-white/[0.06]">
+          <div className="lg:col-span-6 lg:pl-10 lg:border-l border-white/[0.05]">
             <span className="kicker">Ready to build?</span>
             <div className="font-display font-semibold text-[20px] sm:text-[24px] md:text-[28px] text-white leading-[1.2] tracking-[-0.02em] mt-4 max-w-md">
               Request an on-site estimate — no obligation.
@@ -1220,7 +1221,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 md:gap-10 py-16 md:py-20 border-b border-white/[0.06]">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 md:gap-10 py-16 md:py-20 border-b border-white/[0.05]">
           <FooterCol title="Office">
             <div className="text-white/62 text-[14px] leading-[1.7]">
               1753 Manitou Road<br />Spencerport, NY 14559
@@ -1290,7 +1291,7 @@ function Footer() {
 function FooterCol({ title, children }) {
   return (
     <div>
-      <div className="text-[11px] tracking-[0.14em] uppercase font-semibold text-white mb-6 pb-4 border-b border-white/[0.06]">{title}</div>
+      <div className="text-[11px] tracking-[0.14em] uppercase font-semibold text-white mb-6 pb-4 border-b border-white/[0.05]">{title}</div>
       <div className="space-y-2.5">{children}</div>
     </div>
   );
