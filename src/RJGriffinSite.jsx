@@ -130,13 +130,16 @@ function Header() {
   ];
 
   return (
-    <header className={`sticky top-0 z-40 transition-colors duration-300 ${scrolled ? 'bg-[#F7F4EE]/90 backdrop-blur-md border-b border-[#E2DBCB]' : 'bg-transparent'}`}>
-      <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 flex items-center justify-between h-16 md:h-20">
-        <a href="#top" className="flex items-baseline gap-3">
-          <span className="font-serif text-[22px] md:text-[26px] leading-none text-[#171512] tracking-[-0.01em]">
-            R.J. Griffin
-          </span>
-          <span className="hidden md:inline text-[10px] tracking-[0.28em] text-[#6B6459] uppercase">Est. 1986</span>
+    <header className={`sticky top-0 z-40 transition-all duration-300 ${scrolled ? 'bg-[#F7F4EE]/95 backdrop-blur-md border-b border-[#E2DBCB]' : 'bg-[#F7F4EE]/70 backdrop-blur-sm'}`}>
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 flex items-center justify-between h-[68px] md:h-[84px]">
+        <a href="#top" className="flex items-center gap-3 md:gap-4 group">
+          <div className={`relative overflow-hidden bg-[#0E0C09] transition-all duration-300 ${scrolled ? 'h-10 w-10 md:h-11 md:w-11' : 'h-11 w-11 md:h-14 md:w-14'}`}>
+            <img src="/logo/logo.jpg" alt="R.J. Griffin Construction shield logo" className="w-full h-full object-cover" />
+          </div>
+          <div className="flex flex-col leading-none">
+            <span className="font-serif text-[19px] md:text-[22px] text-[#171512] tracking-[-0.01em]">R.J. Griffin</span>
+            <span className="mt-1 text-[9px] md:text-[10px] tracking-[0.28em] text-[#6B6459] uppercase">Construction · Est. 1986</span>
+          </div>
         </a>
         <nav className="hidden md:flex items-center gap-8 lg:gap-10">
           {links.map(l => (
@@ -144,7 +147,7 @@ function Header() {
               {l.label}
             </a>
           ))}
-          <a href="tel:585-737-7521" className="text-[13px] font-medium text-[#171512] link-underline pb-0.5">
+          <a href="tel:585-737-7521" className="text-[13px] font-medium text-[#171512] link-underline pb-0.5 tabular">
             (585) 737-7521
           </a>
           <a href="#contact" className="inline-flex items-center gap-2 bg-[#171512] text-[#FBF9F4] px-4 py-2.5 text-[12px] tracking-[0.14em] uppercase hover:bg-[#B45309] transition-colors">
@@ -211,55 +214,71 @@ function Header() {
 function Hero() {
   return (
     <section id="top" className="relative">
-      <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 pt-8 md:pt-14 lg:pt-20 pb-14 md:pb-20">
-        <div className="grid grid-cols-12 gap-6 md:gap-10 lg:gap-14 items-end">
-          <div className="col-span-12 lg:col-span-6 xl:col-span-5 order-2 lg:order-1">
+      {/* Cinematic dark stage — anchors the brand */}
+      <div className="relative bg-[#0E0C09] text-[#F7F4EE] overflow-hidden">
+        {/* Background image with dark treatment */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/site/hero.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            fetchpriority="high"
+            className="w-full h-full object-cover opacity-45"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0C09] via-[#0E0C09]/85 to-[#0E0C09]/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0E0C09]/60 via-transparent to-[#0E0C09]" />
+        </div>
+
+        <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12 pt-16 md:pt-24 lg:pt-28 pb-24 md:pb-32 lg:pb-40">
+          <div className="max-w-3xl">
             <Reveal>
-              <Kicker>Rochester, NY · Since 1986</Kicker>
-              <h1 className="mt-6 font-serif text-[44px] sm:text-[56px] md:text-[68px] lg:text-[78px] xl:text-[92px] leading-[1.02] tracking-[-0.02em] text-[#171512]">
-                Rooms your <span className="serif-italic text-[#B45309]">family</span> will actually use.
+              <div className="flex items-center gap-5">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-[#0E0C09] border border-[#C9A96A]/40 shadow-[0_10px_40px_-10px_rgba(201,169,106,0.35)] flex items-center justify-center overflow-hidden">
+                  <img src="/logo/logo.jpg" alt="R.J. Griffin Construction shield" className="w-full h-full object-cover" />
+                </div>
+                <div className="flex flex-col leading-tight">
+                  <span className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-[#C9A96A]">Est. 1986 · Family-Owned</span>
+                  <span className="mt-1.5 font-serif text-lg md:text-xl text-[#F7F4EE]/90 tracking-[-0.01em]">R.J. Griffin Construction</span>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.08}>
+              <h1 className="mt-10 md:mt-12 font-serif text-[44px] sm:text-[60px] md:text-[76px] lg:text-[92px] xl:text-[104px] leading-[0.98] tracking-[-0.025em] text-[#F7F4EE]">
+                Rooms your <span className="serif-italic text-[#C9A96A]">family</span> will actually use.
               </h1>
             </Reveal>
-            <Reveal delay={0.1}>
-              <p className="mt-6 md:mt-8 text-[17px] md:text-lg text-[#2A2620] leading-relaxed max-w-xl">
+
+            <Reveal delay={0.15}>
+              <p className="mt-7 md:mt-9 text-[17px] md:text-[19px] text-[#EFEAE0]/80 leading-relaxed max-w-xl">
                 A family-run general contractor in Spencerport, NY.
                 Forty years of kitchens, baths, additions, and basement egress
                 across the Rochester area — with our own crews, start to finish.
               </p>
             </Reveal>
-            <Reveal delay={0.15}>
-              <div className="mt-8 md:mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+
+            <Reveal delay={0.2}>
+              <div className="mt-9 md:mt-11 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-3 bg-[#171512] text-[#FBF9F4] px-6 py-4 text-[12px] tracking-[0.18em] uppercase hover:bg-[#B45309] transition-colors"
+                  className="inline-flex items-center gap-3 bg-[#C9A96A] text-[#0E0C09] px-7 py-4 text-[12px] tracking-[0.18em] uppercase hover:bg-[#F7F4EE] transition-colors"
                 >
                   Request a Free Estimate <Arrow />
                 </a>
-                <a href="#work" className="text-[13px] text-[#171512] link-underline pb-0.5 flex items-center gap-2">
+                <a href="#work" className="text-[13px] text-[#F7F4EE]/90 link-underline pb-0.5 flex items-center gap-2 hover:text-[#C9A96A] transition-colors">
                   See recent work
                 </a>
               </div>
             </Reveal>
           </div>
 
-          <div className="col-span-12 lg:col-span-6 xl:col-span-7 order-1 lg:order-2">
-            <Reveal delay={0.05}>
-              <figure className="relative">
-                <div className="relative aspect-[4/5] md:aspect-[5/6] lg:aspect-[4/5] overflow-hidden bg-[#EFEAE0]">
-                  <img
-                    src="/images/site/hero.jpg"
-                    alt="Custom kitchen remodel by R.J. Griffin Construction in Rochester, NY"
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                    fetchpriority="high"
-                  />
-                </div>
-                <figcaption className="mt-3 flex items-center justify-between text-[11px] tracking-[0.22em] uppercase text-[#6B6459]">
-                  <span>Selected Work · Recent</span>
-                  <span>Kitchen Remodel · Rochester</span>
-                </figcaption>
-              </figure>
-            </Reveal>
+          {/* Corner caption — magazine touch */}
+          <div className="hidden lg:flex absolute right-12 bottom-16 items-end gap-6 text-right">
+            <div className="text-[10px] tracking-[0.28em] uppercase text-[#F7F4EE]/50 max-w-[180px]">
+              Selected Work<br />Kitchen Remodel · Rochester
+            </div>
+            <div className="w-px h-16 bg-[#C9A96A]/50" />
           </div>
         </div>
       </div>
@@ -1023,16 +1042,21 @@ function Footer() {
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         <div className="grid grid-cols-12 gap-8 md:gap-12 pb-12 border-b border-white/10">
           <div className="col-span-12 md:col-span-5">
-            <div className="font-serif text-[28px] md:text-[36px] text-[#F7F4EE] leading-tight">R.J. Griffin Construction</div>
-            <p className="mt-4 text-[14px] text-[#EFEAE0]/70 leading-relaxed max-w-sm">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 md:w-16 md:h-16 bg-black border border-[#C9A96A]/40 overflow-hidden flex-none">
+                <img src="/logo/logo.jpg" alt="R.J. Griffin Construction shield" className="w-full h-full object-cover" />
+              </div>
+              <div className="font-serif text-[24px] md:text-[32px] text-[#F7F4EE] leading-[1.05]">R.J. Griffin<br />Construction</div>
+            </div>
+            <p className="mt-6 text-[14px] text-[#EFEAE0]/70 leading-relaxed max-w-sm">
               Family-run general contractor. Based in Spencerport, NY.
               Serving the greater Rochester area since 1986.
             </p>
-            <div className="mt-6 flex items-center gap-4 text-[11px] tracking-[0.22em] uppercase text-[#EFEAE0]/50">
+            <div className="mt-6 flex flex-wrap items-center gap-3 text-[11px] tracking-[0.22em] uppercase text-[#EFEAE0]/50">
               <span>Est. 1986</span>
-              <span className="w-1 h-1 bg-[#B45309] rounded-full" />
+              <span className="w-1 h-1 bg-[#C9A96A] rounded-full" />
               <span>A+ BBB</span>
-              <span className="w-1 h-1 bg-[#B45309] rounded-full" />
+              <span className="w-1 h-1 bg-[#C9A96A] rounded-full" />
               <span>Locally owned</span>
             </div>
           </div>
