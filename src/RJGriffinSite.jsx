@@ -3,12 +3,12 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 /* ============================================================================
    R.J. GRIFFIN CONSTRUCTION
-   Dark chrome enterprise — elevated typography, spacing, motion.
+   Typography as architecture — Geist + Inter, weight-driven hierarchy,
+   editorial restraint over marketing. LeChase / Shaefco reference.
    ========================================================================== */
 
 const BUSINESS = {
-  name: 'RJ Griffin Construction',
-  tagline: 'Built to Outlast.',
+  name: 'R.J. Griffin Construction',
   established: 1986,
   yearsInBusiness: 40,
   address: '1753 Manitou Road, Spencerport, NY 14559',
@@ -22,53 +22,53 @@ const BUSINESS = {
 
 const SERVICES = [
   {
-    title: 'Basement Egress Solutions',
-    subtitle: 'Specialized Division',
-    desc: 'Basement egress windows and wells that pass code. We cut them, we install them, we waterproof them. A dedicated crew that does this every week.',
+    title: 'Basement egress solutions',
+    subtitle: 'Specialized division',
+    desc: 'Code-compliant basement egress windows and wells, installed by a crew that does this every week. We cut, install, and waterproof — no subs, no learning curve on your project.',
     icon: 'egress',
     featured: true,
-    points: ['Code-compliant window wells', 'Egress window cutouts & installs', 'Waterproofing & drainage', 'Safety-rated for finished basements'],
+    points: ['Code-compliant window wells', 'Egress cutouts and installations', 'Waterproofing and drainage', 'Safety-rated for finished basements'],
   },
   {
-    title: 'Home Remodeling & Additions',
-    desc: 'Whole-house remodels, room additions, and structural work. Built to match what you already have so it looks like it was always there.',
+    title: 'Home remodels and additions',
+    desc: 'Whole-house remodels, room additions, and structural work — built to match what you already have so it looks like it was always there.',
     icon: 'add',
-    points: ['Room & second-story additions', 'Whole-house remodels', 'Structural updates', 'Basement finishing'],
+    points: ['Room and second-story additions', 'Whole-house remodels', 'Structural updates', 'Basement finishing'],
   },
   {
-    title: 'Kitchen & Bathroom Design',
-    desc: 'Full kitchen and bath remodels. Cabinets, countertops, custom tile, plumbing, lighting, and layout changes. We handle every piece.',
+    title: 'Kitchens and bathrooms',
+    desc: 'Full kitchen and bath remodels — cabinetry, countertops, custom tile, plumbing, lighting, and layout changes. We handle every piece.',
     icon: 'kitchen',
-    points: ['Custom cabinetry & countertops', 'Layout redesign', 'Custom tile installation', 'Vanities, tubs & tile showers'],
+    points: ['Custom cabinetry and countertops', 'Layout redesign', 'Tile showers and backsplashes', 'Vanities, tubs, and plumbing'],
   },
   {
     title: 'Exteriors',
-    desc: 'Vinyl and specialty siding, replacement windows, trim work, and decks. Built for Rochester winters and priced fair.',
+    desc: 'Vinyl and specialty siding, replacement windows, trim, and decks — built for Rochester winters and priced fair.',
     icon: 'siding',
-    points: ['Vinyl & specialty siding', 'Replacement windows', 'Trim, soffit & fascia', 'Decks & outdoor spaces'],
+    points: ['Vinyl and specialty siding', 'Replacement windows', 'Trim, soffit, and fascia', 'Decks and outdoor spaces'],
   },
   {
-    title: 'General Construction & Building',
-    desc: 'Custom builds, commercial suite build-outs, accent walls, cabinets, trim. If it takes a hammer and a level, we do it.',
+    title: 'General construction',
+    desc: 'Custom builds, commercial suite build-outs, accent walls, cabinets, and trim. If it takes a hammer and a level, we do it.',
     icon: 'reno',
-    points: ['Custom builds', 'Commercial build-outs', 'Trim & cabinet installs', 'Property enhancements'],
+    points: ['Custom residential builds', 'Commercial build-outs', 'Trim and cabinet installs', 'Property enhancements'],
   },
 ];
 
 const REVIEWS = [
   {
-    text: "We highly recommend RJ Griffin! We had our laundry closet upgraded and a hall closet turned into a mudroom space. Finished off with some updates to the connected powder room. Everything turned out even better than I envisioned. The team was professional and neat. Cost and timeline estimates were reasonable with excellent communication throughout the project. We will definitely be using them for our next project!",
+    text: "We highly recommend RJ Griffin. We had our laundry closet upgraded and a hall closet turned into a mudroom space, finished off with updates to the connected powder room. Everything turned out even better than I envisioned. The team was professional and neat. Cost and timeline estimates were reasonable with excellent communication throughout. We will definitely be using them for our next project.",
     author: 'Valerie Lamoreaux',
     location: 'Rochester, NY',
-    project: 'Laundry, Mudroom & Powder Room',
+    project: 'Laundry, mudroom & powder room',
     stars: 5,
     source: 'Facebook',
   },
   {
-    text: "RJ Griffin Construction just completed this accent wall, trim and cabinet install for our salon suite! They were quick, professional and their attention to detail is spot on! Contact them for any of your renovation needs whether it's a full bathroom renovation to a new kitchen, decks or egress wells! These are your guys!",
+    text: "RJ Griffin Construction just completed this accent wall, trim and cabinet install for our salon suite. They were quick, professional and their attention to detail is spot on. Contact them for any of your renovation needs — a full bathroom, a new kitchen, decks, or egress wells. These are your guys.",
     author: 'CJ Cutaia',
-    location: 'Salon Suite Build-Out',
-    project: 'Accent Wall, Trim & Cabinets',
+    location: 'Salon suite build-out',
+    project: 'Accent wall, trim & cabinets',
     stars: 5,
     source: 'Facebook',
   },
@@ -76,26 +76,26 @@ const REVIEWS = [
 
 const GALLERY = Array.from({ length: 16 }, (_, i) => ({
   src: `/images/gallery/project-${String(i + 1).padStart(2, '0')}.jpg`,
-  alt: `RJ Griffin Construction project ${i + 1} — Rochester NY remodel`,
+  alt: `R.J. Griffin Construction project ${i + 1} — Rochester NY remodel`,
 }));
 
 const AREAS = ['Spencerport', 'Rochester', 'Brockport', 'Hilton', 'Greece', 'Chili', 'Gates', 'Pittsford', 'Fairport', 'Webster', 'Penfield', 'Henrietta', 'Irondequoit', 'Brighton', 'Monroe County'];
 
-const CAPABILITIES = ['Kitchens', 'Baths', 'Additions', 'Basement Egress', 'Siding', 'Windows', 'Tile', 'Trim', 'Decks', 'Full Renovations'];
+const CAPABILITIES = ['Kitchens', 'Baths', 'Additions', 'Basement egress', 'Siding', 'Windows', 'Tile', 'Trim', 'Decks', 'Full renovations'];
 
 /* ============================================================================
-   ICONS — refined 1.4 stroke, unified visual weight
+   ICONS
    ========================================================================== */
 
-const Icon = ({ name, className = 'w-8 h-8' }) => {
+const Icon = ({ name, className = 'w-5 h-5' }) => {
   const common = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.3, strokeLinecap: 'round', strokeLinejoin: 'round' };
   const map = {
     kitchen: <svg viewBox="0 0 24 24" className={className} {...common}><rect x="3" y="4" width="18" height="6" rx="0.5" /><rect x="3" y="14" width="18" height="6" rx="0.5" /><path d="M8 7h1M15 7h1M8 17h1M15 17h1" /></svg>,
-    bath: <svg viewBox="0 0 24 24" className={className} {...common}><path d="M4 12h16v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z" /><path d="M7 12V6a2 2 0 0 1 4 0" /><path d="M9 6l1.5 1.5" /></svg>,
-    add: <svg viewBox="0 0 24 24" className={className} {...common}><path d="M3 12l9-8 9 8" /><path d="M5 10v10h5v-6h4v6h5V10" /><path d="M17 3v4M15 5h4" /></svg>,
-    egress: <svg viewBox="0 0 24 24" className={className} {...common}><path d="M4 20h16" /><path d="M4 20V4h16v16" /><rect x="8" y="8" width="8" height="10" /><path d="M8 13h8" /><path d="M2 20l2-4M22 20l-2-4" /></svg>,
+    bath: <svg viewBox="0 0 24 24" className={className} {...common}><path d="M4 12h16v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z" /><path d="M7 12V6a2 2 0 0 1 4 0" /></svg>,
+    add: <svg viewBox="0 0 24 24" className={className} {...common}><path d="M3 12l9-8 9 8" /><path d="M5 10v10h5v-6h4v6h5V10" /></svg>,
+    egress: <svg viewBox="0 0 24 24" className={className} {...common}><path d="M4 20h16" /><path d="M4 20V4h16v16" /><rect x="8" y="8" width="8" height="10" /><path d="M8 13h8" /></svg>,
     siding: <svg viewBox="0 0 24 24" className={className} {...common}><path d="M3 4h18v16H3z" /><path d="M3 8h18M3 12h18M3 16h18" /></svg>,
-    reno: <svg viewBox="0 0 24 24" className={className} {...common}><path d="M14 2l8 8-4 4-8-8z" /><path d="M10 6L2 14l6 6 8-8" /><path d="M6 18l-3 3" /></svg>,
+    reno: <svg viewBox="0 0 24 24" className={className} {...common}><path d="M14 2l8 8-4 4-8-8z" /><path d="M10 6L2 14l6 6 8-8" /></svg>,
     check: <svg viewBox="0 0 24 24" className={className} {...common}><path d="M20 6L9 17l-5-5" /></svg>,
     phone: <svg viewBox="0 0 24 24" className={className} {...common}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>,
     mail: <svg viewBox="0 0 24 24" className={className} {...common}><rect x="2" y="4" width="20" height="16" rx="0.5" /><path d="M2 6l10 7L22 6" /></svg>,
@@ -113,7 +113,7 @@ const Icon = ({ name, className = 'w-8 h-8' }) => {
    HELPERS
    ========================================================================== */
 
-const Reveal = ({ children, delay = 0, y = 14, className = '' }) => {
+const Reveal = ({ children, delay = 0, y = 12, className = '' }) => {
   const reduce = useReducedMotion();
   if (reduce) return <div className={className}>{children}</div>;
   return (
@@ -129,14 +129,32 @@ const Reveal = ({ children, delay = 0, y = 14, className = '' }) => {
   );
 };
 
-const Kicker = ({ children, className = '' }) => (
-  <div className={`flex items-center gap-4 ${className}`}>
-    <span className="rule-line" />
-    <span className="kicker">{children}</span>
+/* Editorial section eyebrow — number / label with hairline. Whispers. */
+const Eyebrow = ({ number, label, align = 'left', tone = 'default' }) => {
+  const brass = tone === 'brass' ? 'text-[#C9A96A]' : 'text-[#C9A96A]';
+  return (
+    <div className={`flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}>
+      {number && <span className={`text-[11px] font-medium tracking-[0.1em] ${brass} tabular`}>{number}</span>}
+      {number && <span className="w-8 h-px bg-white/20" />}
+      <span className="text-[11px] font-medium tracking-[0.1em] text-white/55">{label}</span>
+    </div>
+  );
+};
+
+/* Section header — sentence case, restrained scale, weight-driven */
+const SectionHeader = ({ number, kicker, title, lede, align = 'left', maxTitleWidth = '20ch' }) => (
+  <div className={`${align === 'center' ? 'mx-auto text-center' : ''} max-w-3xl`}>
+    <Eyebrow number={number} label={kicker} align={align} />
+    <h2
+      className="font-display font-semibold text-[26px] sm:text-[30px] md:text-[34px] lg:text-[38px] leading-[1.2] tracking-[-0.02em] text-[#F5F3EE] mt-6"
+      style={{ maxWidth: maxTitleWidth }}
+    >
+      {title}
+    </h2>
+    {lede && <p className="prose-lede text-white/62 mt-5">{lede}</p>}
   </div>
 );
 
-/* Small animated counter — increments on scroll into view */
 const Counter = ({ end, suffix = '', duration = 1400, className = '' }) => {
   const [value, setValue] = useState(0);
   const [seen, setSeen] = useState(false);
@@ -172,7 +190,7 @@ const Counter = ({ end, suffix = '', duration = 1400, className = '' }) => {
 };
 
 /* ============================================================================
-   HEADER — increased logo prominence, refined nav, premium blur
+   HEADER
    ========================================================================== */
 
 function Header() {
@@ -190,9 +208,7 @@ function Header() {
   useEffect(() => {
     const ids = ['services', 'before-after', 'gallery', 'about', 'reviews', 'contact'];
     const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.id); });
-      },
+      (entries) => { entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.id); }); },
       { rootMargin: '-45% 0px -50% 0px' }
     );
     ids.forEach((id) => { const el = document.getElementById(id); if (el) obs.observe(el); });
@@ -211,29 +227,29 @@ function Header() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? 'bg-[#0A0A0A]/72 backdrop-blur-2xl backdrop-saturate-125 border-b border-white/[0.06]'
-          : 'bg-gradient-to-b from-black/60 via-black/15 to-transparent'
+          ? 'bg-[#0A0A0A]/72 backdrop-blur-2xl backdrop-saturate-125 border-b border-white/[0.05]'
+          : 'bg-gradient-to-b from-black/55 via-black/10 to-transparent'
       }`}
     >
       <div className={`max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-3.5 md:py-4' : 'py-5 md:py-7'}`}>
-        <a href="#top" className="flex items-center gap-3 md:gap-4 group" aria-label="RJ Griffin Construction — home">
-          <div className={`relative overflow-hidden ring-1 ring-[#C9A96A]/20 transition-all duration-500 ${scrolled ? 'h-11 w-11 md:h-[52px] md:w-[52px]' : 'h-12 w-12 md:h-[68px] md:w-[68px]'}`}>
+        <a href="#top" className="flex items-center gap-3.5 group" aria-label="R.J. Griffin Construction — home">
+          <div className={`relative overflow-hidden ring-1 ring-[#C9A96A]/20 transition-all duration-500 ${scrolled ? 'h-11 w-11 md:h-[52px] md:w-[52px]' : 'h-12 w-12 md:h-[64px] md:w-[64px]'}`}>
             <img src="/logo/logo.jpg" alt="" className="w-full h-full object-cover" />
           </div>
           <div className="hidden sm:block leading-tight">
-            <div className="font-display text-white text-[13px] md:text-[15px] tracking-[0.22em]">R.J GRIFFIN</div>
-            <div className="text-[9px] md:text-[10px] tracking-[0.34em] text-white/45 mt-1">CONSTRUCTION · EST. 1986</div>
+            <div className="font-display font-semibold text-white text-[15px] md:text-[16px] tracking-[-0.01em]">R.J. Griffin</div>
+            <div className="text-[10px] tracking-[0.14em] text-white/45 mt-1 font-medium">Construction · Est. 1986</div>
           </div>
         </a>
 
-        <nav className="hidden lg:flex items-center gap-10">
+        <nav className="hidden lg:flex items-center gap-9">
           {links.map(l => {
             const isActive = active && l.href === `#${active}`;
             return (
               <a
                 key={l.href}
                 href={l.href}
-                className={`relative text-[12px] tracking-[0.22em] uppercase transition-colors ${isActive ? 'text-white' : 'text-white/60 hover:text-white'}`}
+                className={`relative text-[13px] font-medium transition-colors ${isActive ? 'text-white' : 'text-white/60 hover:text-white'}`}
               >
                 {l.label}
                 <span className={`absolute -bottom-2 left-0 h-px bg-[#C9A96A] transition-all duration-500 ${isActive ? 'w-full' : 'w-0'}`} />
@@ -243,11 +259,11 @@ function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-6">
-          <a href={`tel:${BUSINESS.contacts.ron.tel}`} className="text-[13px] text-white/75 hover:text-[#C9A96A] transition-colors tabular">
+          <a href={`tel:${BUSINESS.contacts.ron.tel}`} className="text-[13px] font-medium text-white/75 hover:text-[#C9A96A] transition-colors tabular">
             {BUSINESS.contacts.ron.phone}
           </a>
           <a href="#contact" className="btn btn-primary">
-            Request Estimate
+            Request estimate
             <span className="arrow-slide"><Icon name="arrow" className="w-3 h-3" /></span>
           </a>
         </div>
@@ -271,7 +287,7 @@ function Header() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 0.61, 0.36, 1] }}
-            className="lg:hidden overflow-hidden bg-[#0A0A0A]/95 backdrop-blur-xl border-t border-white/10"
+            className="lg:hidden overflow-hidden bg-[#0A0A0A]/95 backdrop-blur-xl border-t border-white/[0.05]"
           >
             <nav className="flex flex-col p-6 gap-1 max-w-[1440px] mx-auto">
               {links.map(l => (
@@ -279,17 +295,17 @@ function Header() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setMenuOpen(false)}
-                  className="font-display text-white text-2xl tracking-[0.05em] py-3 border-b border-white/8"
+                  className="font-display font-semibold text-white text-[22px] py-3 border-b border-white/[0.06]"
                 >
                   {l.label}
                 </a>
               ))}
-              <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-6">
+              <div className="mt-6 flex items-center justify-between border-t border-white/[0.06] pt-6">
                 <span className="kicker">Call Ron</span>
-                <a href={`tel:${BUSINESS.contacts.ron.tel}`} className="font-display text-[#C9A96A] text-xl tabular">{BUSINESS.contacts.ron.phone}</a>
+                <a href={`tel:${BUSINESS.contacts.ron.tel}`} className="font-display font-semibold text-[#C9A96A] text-lg tabular">{BUSINESS.contacts.ron.phone}</a>
               </div>
               <a href="#contact" onClick={() => setMenuOpen(false)} className="btn btn-primary mt-4 w-full">
-                Request an Estimate
+                Request an estimate
                 <span className="arrow-slide"><Icon name="arrow" className="w-3 h-3" /></span>
               </a>
             </nav>
@@ -301,7 +317,7 @@ function Header() {
 }
 
 /* ============================================================================
-   HERO — calm cinema; removed parallax + chrome shine, refined stats
+   HERO
    ========================================================================== */
 
 function Hero() {
@@ -314,38 +330,36 @@ function Hero() {
           aria-hidden="true"
           loading="eager"
           fetchpriority="high"
-          className="w-full h-full object-cover object-[center_35%] scale-[1.03]"
+          className="w-full h-full object-cover object-[center_38%] scale-[1.03]"
         />
-        {/* Editorial depth: darker top vignette, rich bottom fade, right-side softening */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-[#0A0A0A]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/65 to-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/60 to-black/20" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.55)_100%)]" />
       </div>
 
       <div className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 min-h-[100svh] flex flex-col justify-center pt-36 md:pt-44 pb-28 md:pb-32">
         <Reveal>
-          <Kicker>Based in Spencerport · Serving Rochester, NY</Kicker>
+          <Eyebrow label="Rochester, NY · Since 1986" />
         </Reveal>
 
         <Reveal delay={0.08}>
-          <h1 className="font-display text-[44px] sm:text-[76px] lg:text-[104px] xl:text-[116px] leading-[0.94] tracking-[-0.025em] mt-8 mb-8 max-w-5xl text-white">
-            Built to<br />
-            <span className="text-chrome">Outlast.</span>
+          <h1 className="font-display font-bold text-[30px] sm:text-[36px] md:text-[44px] lg:text-[52px] xl:text-[58px] leading-[1.14] tracking-[-0.025em] text-[#F5F3EE] mt-7 max-w-3xl">
+            Building homes and rooms<br className="hidden sm:block" /> that stand the test of time.
           </h1>
         </Reveal>
 
         <Reveal delay={0.15}>
-          <p className="prose-lede text-white/75 mb-12 max-w-xl">
-            A family-run general contractor building in the Rochester area for
-            forty years. Kitchens, baths, additions, and basement egress —
-            handled by our own crews, start to finish.
+          <p className="prose-lede text-white/72 mt-7 max-w-xl">
+            R.J. Griffin Construction is a family-run general contractor.
+            Kitchens, baths, additions, and basement egress across the Rochester
+            area — delivered by our own crews, start to finish. Since 1986.
           </p>
         </Reveal>
 
         <Reveal delay={0.22}>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-5 mb-20">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-10 mb-20">
             <a href="#contact" className="btn btn-primary">
-              Start Your Project
+              Start your project
               <span className="arrow-slide"><Icon name="arrow" className="w-3 h-3" /></span>
             </a>
             <a href={`tel:${BUSINESS.contacts.ron.tel}`} className="btn btn-secondary">
@@ -356,50 +370,44 @@ function Hero() {
         </Reveal>
 
         <Reveal delay={0.3}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-14 max-w-4xl mt-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-4xl mt-auto pt-10 border-t border-white/[0.08]">
             {[
-              { n: 40, s: '+', l: 'Years Building' },
-              { n: 1000, s: '+', l: 'Projects Completed' },
-              { n: 5, s: '.0', l: 'Client Review Average' },
-              { n: 100, s: '%', l: 'Own-Crew Delivery' },
+              { n: 40, s: '+', l: 'Years building' },
+              { n: 1000, s: '+', l: 'Projects completed' },
+              { n: 5, s: '.0', l: 'Facebook rating' },
+              { n: 100, s: '%', l: 'Own-crew delivery' },
             ].map((s) => (
-              <div key={s.l} className="border-l border-white/15 pl-5">
-                <div className="font-display text-3xl md:text-[42px] text-chrome leading-none">
+              <div key={s.l}>
+                <div className="font-display font-semibold text-[28px] md:text-[36px] text-[#F5F3EE] leading-none">
                   <Counter end={s.n} suffix={s.s} />
                 </div>
-                <div className="text-[10px] md:text-[11px] tracking-[0.32em] uppercase text-white/45 mt-3">{s.l}</div>
+                <div className="text-[11px] tracking-[0.1em] text-white/45 mt-3 font-medium">{s.l}</div>
               </div>
             ))}
           </div>
         </Reveal>
-      </div>
-
-      {/* Scroll hint — refined, single hairline + small caption */}
-      <div className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-3 z-10">
-        <span className="text-[9px] tracking-[0.4em] uppercase text-white/40">Explore</span>
-        <span className="block w-px h-10 bg-gradient-to-b from-[#C9A96A] to-transparent" />
       </div>
     </section>
   );
 }
 
 /* ============================================================================
-   CAPABILITIES BAND — replaces flashy marquee with static, premium row
+   CAPABILITIES BAND — quiet static row
    ========================================================================== */
 
 function Capabilities() {
   return (
-    <section aria-label="Capabilities" className="relative bg-[#0A0A0A] border-y border-white/[0.08]">
+    <section aria-label="Capabilities" className="relative bg-[#0A0A0A] border-y border-white/[0.05]">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-10 md:py-12">
-        <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-12">
           <div className="shrink-0">
             <span className="kicker text-[#C9A96A]/85">Capabilities</span>
           </div>
           <div className="flex-1 flex flex-wrap items-center gap-x-6 gap-y-3 lg:justify-end">
             {CAPABILITIES.map((c, i) => (
               <React.Fragment key={c}>
-                <span className="font-display text-white/85 text-[13px] md:text-[15px] tracking-[0.16em]">{c.toUpperCase()}</span>
-                {i < CAPABILITIES.length - 1 && <span className="text-white/15 select-none">/</span>}
+                <span className="text-white/78 text-[13px] md:text-[14px] font-medium">{c}</span>
+                {i < CAPABILITIES.length - 1 && <span className="text-white/12 select-none">/</span>}
               </React.Fragment>
             ))}
           </div>
@@ -410,29 +418,29 @@ function Capabilities() {
 }
 
 /* ============================================================================
-   TRUST BADGES — more padding, no aggressive hover scale
+   TRUST — quiet 4-up
    ========================================================================== */
 
 function TrustBadges() {
   const badges = [
-    { title: 'A+ Rated', sub: 'BBB Accredited', icon: 'shield' },
+    { title: 'A+ Rated', sub: 'BBB accredited', icon: 'shield' },
     { title: '40+ Years', sub: 'Serving Rochester', icon: 'clock' },
-    { title: 'Locally Owned', sub: 'Spencerport, NY', icon: 'pin' },
-    { title: 'Fully Insured', sub: 'Licensed Contractor', icon: 'check' },
+    { title: 'Locally owned', sub: 'Spencerport, NY', icon: 'pin' },
+    { title: 'Fully insured', sub: 'Licensed contractor', icon: 'check' },
   ];
   return (
-    <section aria-label="Trust and credentials" className="relative bg-[#0A0A0A]">
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-20 md:py-24 border-b border-white/[0.08]">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.06]">
+    <section aria-label="Credentials" className="relative bg-[#0A0A0A]">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-20 md:py-24 border-b border-white/[0.05]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.05]">
           {badges.map((b, i) => (
-            <Reveal key={b.title} delay={i * 0.05}>
-              <div className="bg-[#0A0A0A] group flex items-center gap-5 md:gap-6 p-8 md:p-10 h-full transition-colors duration-500 hover:bg-[#111]">
-                <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full border border-white/12 text-[#C9A96A] shrink-0 transition-all duration-500 group-hover:border-[#C9A96A]/60">
-                  <Icon name={b.icon} className="w-5 h-5 md:w-6 md:h-6" />
+            <Reveal key={b.title} delay={i * 0.04}>
+              <div className="bg-[#0A0A0A] group flex items-center gap-5 p-8 md:p-10 h-full transition-colors duration-500 hover:bg-[#0F0F0F]">
+                <div className="w-11 h-11 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-white/[0.1] text-[#C9A96A] shrink-0 transition-all duration-500 group-hover:border-[#C9A96A]/50">
+                  <Icon name={b.icon} className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="font-display text-white text-lg md:text-xl tracking-wide leading-tight">{b.title}</div>
-                  <div className="text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-white/50 mt-2">{b.sub}</div>
+                  <div className="font-display font-semibold text-white text-[15px] md:text-[16px] leading-tight tracking-[-0.01em]">{b.title}</div>
+                  <div className="text-[11px] tracking-[0.1em] text-white/48 mt-1.5 font-medium">{b.sub}</div>
                 </div>
               </div>
             </Reveal>
@@ -444,32 +452,7 @@ function TrustBadges() {
 }
 
 /* ============================================================================
-   SECTION HEADER — reusable
-   ========================================================================== */
-
-function SectionHeader({ number, kicker, title, chromeWord, lede, align = 'left' }) {
-  return (
-    <div className={`max-w-3xl ${align === 'center' ? 'mx-auto text-center' : ''}`}>
-      {align === 'center' ? (
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <span className="rule-line" />
-          <span className="kicker">{number} · {kicker}</span>
-          <span className="rule-line" />
-        </div>
-      ) : (
-        <Kicker className="mb-6">{number} · {kicker}</Kicker>
-      )}
-      <h2 className="font-display text-[30px] sm:text-[44px] lg:text-[58px] leading-[0.98] tracking-[-0.02em] text-white">
-        {title}
-        {chromeWord && <> <span className="text-chrome">{chromeWord}</span></>}
-      </h2>
-      {lede && <p className="prose-lede text-white/65 mt-6">{lede}</p>}
-    </div>
-  );
-}
-
-/* ============================================================================
-   SERVICES — refined featured block + grid cards
+   SERVICES
    ========================================================================== */
 
 function Services() {
@@ -481,63 +464,61 @@ function Services() {
         <Reveal>
           <SectionHeader
             number="01"
-            kicker="What We Build"
-            title="What"
-            chromeWord="We Do."
+            kicker="Services"
+            title="What we build."
             lede="Own crews, no rotating subs. When we quote a project, that's who's showing up to build it."
+            maxTitleWidth="18ch"
           />
         </Reveal>
 
-        {/* Featured */}
         {featured && (
           <Reveal delay={0.1}>
-            <article className="card mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-5 overflow-hidden">
+            <article className="card mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-5 overflow-hidden">
               <div className="md:col-span-3 p-10 sm:p-14 lg:p-20 relative">
-                <span className="inline-flex items-center gap-2 text-[10px] tracking-[0.32em] uppercase text-[#C9A96A]">
+                <span className="inline-flex items-center gap-2 text-[11px] tracking-[0.12em] font-medium text-[#C9A96A]">
                   <span className="w-1 h-1 rounded-full bg-[#C9A96A]" />
                   {featured.subtitle}
                 </span>
                 <div className="text-[#C9A96A] mt-8">
-                  <Icon name={featured.icon} className="w-12 h-12 md:w-14 md:h-14" />
+                  <Icon name={featured.icon} className="w-10 h-10" />
                 </div>
-                <h3 className="font-display text-[24px] sm:text-[32px] lg:text-[42px] text-white mt-6 leading-[1.05] tracking-[-0.015em] max-w-md">
+                <h3 className="font-display font-semibold text-[22px] sm:text-[26px] lg:text-[32px] text-white mt-6 leading-[1.2] tracking-[-0.02em] max-w-md">
                   {featured.title}
                 </h3>
-                <p className="prose-lede text-white/70 mt-6 max-w-xl">{featured.desc}</p>
+                <p className="prose-lede text-white/68 mt-6">{featured.desc}</p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mt-8">
                   {featured.points.map(p => (
-                    <li key={p} className="flex items-start gap-3 text-white/72 text-sm">
-                      <span className="text-[#C9A96A] mt-1 shrink-0"><Icon name="check" className="w-3.5 h-3.5" /></span>
+                    <li key={p} className="flex items-start gap-3 text-white/68 text-[14px] font-normal">
+                      <span className="text-[#C9A96A] mt-0.5 shrink-0"><Icon name="check" className="w-3.5 h-3.5" /></span>
                       {p}
                     </li>
                   ))}
                 </ul>
                 <a href="#contact" className="btn btn-primary mt-10">
-                  Request Egress Quote
+                  Request egress quote
                   <span className="arrow-slide"><Icon name="arrow" className="w-3 h-3" /></span>
                 </a>
               </div>
               <div className="md:col-span-2 relative min-h-[300px] md:min-h-full hover-zoom overflow-hidden photo-tone">
                 <img src="/images/gallery/project-05.jpg" alt="Basement egress installation" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#121212]/70" />
-                <div className="absolute bottom-5 right-5 text-[10px] tracking-[0.32em] uppercase text-white/60">Rochester · Egress Well</div>
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#0F0F0F]/70" />
+                <div className="absolute bottom-5 right-5 text-[10px] tracking-[0.12em] uppercase text-white/55 font-medium">Rochester · Egress well</div>
               </div>
             </article>
           </Reveal>
         )}
 
-        {/* Other services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.06] mt-px">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.05] mt-px">
           {rest.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.06}>
-              <article className="bg-[#0A0A0A] group p-10 sm:p-12 lg:p-16 h-full transition-colors duration-500 hover:bg-[#101010]">
+              <article className="bg-[#0A0A0A] group p-10 sm:p-12 lg:p-16 h-full transition-colors duration-500 hover:bg-[#0F0F0F]">
                 <div className="flex items-start gap-6 md:gap-8">
-                  <div className="text-[#C9A96A] shrink-0 w-14 h-14 flex items-center justify-center rounded-full border border-white/10 transition-all duration-500 group-hover:border-[#C9A96A]/50">
-                    <Icon name={s.icon} className="w-6 h-6" />
+                  <div className="text-[#C9A96A] shrink-0 w-12 h-12 flex items-center justify-center rounded-full border border-white/[0.1] transition-all duration-500 group-hover:border-[#C9A96A]/45">
+                    <Icon name={s.icon} className="w-5 h-5" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-display text-lg md:text-xl lg:text-[23px] text-white leading-tight tracking-[-0.01em]">{s.title}</h3>
-                    <p className="text-white/60 text-[15px] leading-[1.7] mt-4 max-w-md">{s.desc}</p>
+                    <h3 className="font-display font-semibold text-[18px] md:text-[19px] lg:text-[21px] text-white leading-[1.25] tracking-[-0.015em]">{s.title}</h3>
+                    <p className="text-white/62 text-[14.5px] leading-[1.68] mt-4 max-w-md">{s.desc}</p>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mt-6 text-[13px] text-white/55">
                       {s.points.map(p => (
                         <li key={p} className="flex items-start gap-2">
@@ -558,7 +539,7 @@ function Services() {
 }
 
 /* ============================================================================
-   BEFORE / AFTER — premium draggable comparison
+   BEFORE / AFTER — draggable comparison
    ========================================================================== */
 
 function BeforeAfter() {
@@ -602,19 +583,19 @@ function BeforeAfter() {
           <SectionHeader
             number="02"
             kicker="Transformations"
-            title="Before"
-            chromeWord="& After."
-            lede="Same room, same footprint. Drag the divider to see the transformation."
+            title="Same room. New life."
+            lede="Drag the divider to see a recent Rochester sunroom refinished by our crew."
+            maxTitleWidth="16ch"
           />
         </Reveal>
 
         <Reveal delay={0.1}>
-          <figure className="mt-16 md:mt-20">
+          <figure className="mt-16 md:mt-24">
             <div
               ref={containerRef}
               onMouseDown={startDrag}
               onTouchStart={startDrag}
-              className="relative w-full max-w-[1200px] mx-auto aspect-[4/5] sm:aspect-[16/10] overflow-hidden select-none cursor-ew-resize border border-white/10 rounded-sm"
+              className="relative w-full max-w-[1200px] mx-auto aspect-[4/5] sm:aspect-[16/10] overflow-hidden select-none cursor-ew-resize border border-white/10"
               role="slider"
               aria-label="Before and after comparison"
               aria-valuemin={0}
@@ -634,17 +615,15 @@ function BeforeAfter() {
                 <img src="/images/gallery/before.jpg" alt="Before R.J. Griffin renovation" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
               </div>
 
-              {/* Labels */}
-              <div className="absolute top-5 left-5 px-3.5 py-2 bg-black/70 backdrop-blur border border-white/15">
-                <div className="text-[9px] tracking-[0.32em] text-white/50">01</div>
-                <div className="font-display text-white text-[13px] tracking-widest">BEFORE</div>
+              <div className="absolute top-5 left-5 px-3.5 py-1.5 bg-black/70 backdrop-blur border border-white/15">
+                <div className="text-[9px] tracking-[0.16em] text-white/50 font-medium">01</div>
+                <div className="font-display font-semibold text-white text-[13px] tracking-[-0.01em]">Before</div>
               </div>
-              <div className="absolute top-5 right-5 px-3.5 py-2 bg-[#C9A96A] text-black">
-                <div className="text-[9px] tracking-[0.32em] text-black/60">02</div>
-                <div className="font-display text-black text-[13px] tracking-widest">AFTER</div>
+              <div className="absolute top-5 right-5 px-3.5 py-1.5 bg-[#C9A96A] text-black">
+                <div className="text-[9px] tracking-[0.16em] text-black/60 font-medium">02</div>
+                <div className="font-display font-semibold text-black text-[13px] tracking-[-0.01em]">After</div>
               </div>
 
-              {/* Divider */}
               <div className="absolute top-0 bottom-0 pointer-events-none" style={{ left: `calc(${pos}% - 1px)` }}>
                 <div className="w-0.5 h-full bg-[#F5F3EE]" />
                 <button
@@ -661,10 +640,10 @@ function BeforeAfter() {
             </div>
 
             <figcaption className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-              <div className="text-[11px] tracking-[0.28em] uppercase text-white/45">
-                Rochester Sunroom · Refinished by R.J. Griffin
+              <div className="text-[12px] text-white/50 font-medium">
+                Rochester sunroom · Refinished by R.J. Griffin
               </div>
-              <div className="text-[11px] tracking-[0.28em] uppercase text-white/40">
+              <div className="text-[12px] text-white/45 font-medium">
                 Drag to compare · <span className="text-[#C9A96A]">{Math.round(pos)}%</span>
               </div>
             </figcaption>
@@ -676,7 +655,7 @@ function BeforeAfter() {
 }
 
 /* ============================================================================
-   GALLERY — refined masonry, quiet hover
+   GALLERY
    ========================================================================== */
 
 function Gallery() {
@@ -701,16 +680,16 @@ function Gallery() {
           <Reveal>
             <SectionHeader
               number="03"
-              kicker="Selected Work"
-              title="Our"
-              chromeWord="Work."
-              lede="A cross-section of recent kitchens, baths, additions, and basement projects."
+              kicker="Selected work"
+              title="A cross-section of recent projects."
+              lede="Kitchens, baths, additions, and basement work from across the greater Rochester area."
+              maxTitleWidth="18ch"
             />
           </Reveal>
           <Reveal delay={0.05}>
             <a href={BUSINESS.facebook} target="_blank" rel="noopener noreferrer" className="btn btn-secondary self-start lg:self-auto">
               <Icon name="facebook" className="w-3.5 h-3.5" />
-              See More on Facebook
+              See more on Facebook
             </a>
           </Reveal>
         </div>
@@ -731,14 +710,12 @@ function Gallery() {
                   aria-label={`View project ${i + 1}`}
                 >
                   <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-full object-cover" />
-                  {/* Subtle vignette + editorial bottom fade */}
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_60%,rgba(0,0,0,0.35)_100%)]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                  {/* Brass hairline reveal on hover */}
-                  <div className="absolute inset-x-4 bottom-0 h-px bg-[#C9A96A]/0 group-hover:bg-[#C9A96A]/50 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-x-4 bottom-0 h-px bg-[#C9A96A]/0 group-hover:bg-[#C9A96A]/45 transition-colors duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-                    <div className="text-[9px] md:text-[10px] tracking-[0.32em] text-white/65 uppercase">Project {String(i + 1).padStart(2, '0')}</div>
-                    <div className="flex items-center gap-2 mt-1.5 text-[#C9A96A] text-[11px] tracking-[0.24em] uppercase opacity-0 group-hover:opacity-100 -translate-y-1 group-hover:translate-y-0 transition-all duration-500">
+                    <div className="text-[10px] tracking-[0.16em] text-white/65 font-medium">Project {String(i + 1).padStart(2, '0')}</div>
+                    <div className="flex items-center gap-2 mt-1.5 text-[#C9A96A] text-[11px] font-medium opacity-0 group-hover:opacity-100 -translate-y-1 group-hover:translate-y-0 transition-all duration-500">
                       View <Icon name="arrow" className="w-3 h-3" />
                     </div>
                   </div>
@@ -790,7 +767,7 @@ function Gallery() {
               onClick={(e) => e.stopPropagation()}
               className="max-w-[92vw] max-h-[86vh] object-contain"
             />
-            <div className="absolute bottom-5 md:bottom-8 left-1/2 -translate-x-1/2 text-[11px] tracking-[0.32em] uppercase text-white/50 tabular">
+            <div className="absolute bottom-5 md:bottom-8 left-1/2 -translate-x-1/2 text-[11px] tracking-[0.14em] text-white/50 tabular font-medium">
               {String(lightbox + 1).padStart(2, '0')} / {String(GALLERY.length).padStart(2, '0')}
             </div>
           </motion.div>
@@ -801,14 +778,14 @@ function Gallery() {
 }
 
 /* ============================================================================
-   ABOUT — refined 40+ badge, cleaner contact cards
+   ABOUT
    ========================================================================== */
 
 function About() {
   return (
     <section id="about" className="relative bg-surface-2 py-28 sm:py-40 lg:py-52 border-t border-white/[0.05] overflow-hidden">
       <div aria-hidden="true" className="absolute inset-0 grid-hairlines opacity-40 pointer-events-none" />
-      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#080808] to-transparent pointer-events-none" />
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0A0A0A] to-transparent pointer-events-none" />
       <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent pointer-events-none" />
       <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
         <div className="lg:col-span-5 order-2 lg:order-1">
@@ -817,9 +794,9 @@ function About() {
               <div className="relative aspect-[4/5] overflow-hidden border border-white/10 hover-zoom photo-tone">
                 <img src="/images/gallery/project-11.jpg" alt="R.J. Griffin project — Rochester NY" loading="lazy" className="w-full h-full object-cover" />
               </div>
-              <div className="absolute -bottom-6 -right-3 md:-right-6 bg-[#F5F3EE] text-black px-7 md:px-9 py-6 md:py-7 max-w-[240px] shadow-[0_24px_50px_-24px_rgba(0,0,0,0.9)]">
-                <div className="font-display text-5xl md:text-6xl leading-none tabular"><Counter end={40} suffix="+" /></div>
-                <div className="text-[10px] tracking-[0.32em] uppercase mt-3 text-black/70">Years building in the<br />Rochester, NY area</div>
+              <div className="absolute -bottom-6 -right-3 md:-right-6 bg-[#F5F3EE] text-black px-7 md:px-9 py-6 md:py-7 max-w-[240px] shadow-[0_20px_40px_-20px_rgba(0,0,0,0.85)]">
+                <div className="font-display font-bold text-[42px] md:text-[52px] leading-none tabular"><Counter end={40} suffix="+" /></div>
+                <div className="text-[10px] tracking-[0.12em] mt-2.5 text-black/65 font-medium">Years building in the<br />Rochester, NY area</div>
               </div>
             </figure>
           </Reveal>
@@ -827,35 +804,37 @@ function About() {
 
         <div className="lg:col-span-7 order-1 lg:order-2">
           <Reveal>
-            <Kicker className="mb-6">04 · Who We Are</Kicker>
-            <h2 className="font-display text-[30px] sm:text-[44px] lg:text-[56px] leading-[0.98] tracking-[-0.02em] text-white">
-              40 Years. <span className="text-chrome">One Name.</span>
+            <Eyebrow number="04" label="About" />
+            <h2 className="font-display font-semibold text-[26px] sm:text-[32px] lg:text-[40px] leading-[1.18] tracking-[-0.02em] text-[#F5F3EE] mt-6 max-w-[22ch]">
+              Forty years of family-run craftsmanship in Rochester.
             </h2>
           </Reveal>
           <div className="mt-8 space-y-5 max-w-xl">
             <Reveal delay={0.05}>
               <p className="prose-lede text-white/72">
-                Ron Griffin started R.J. Griffin Construction in 1986. Forty years later,
-                the company is still here, still family-run, and still doing the work
-                itself. Ron's son Josh handles day-to-day operations.
+                Ron Griffin started R.J. Griffin Construction in 1986. Forty
+                years later, the company is still here — still family-run, and
+                still doing the work itself. Ron's son Josh handles day-to-day
+                operations.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="prose-lede text-white/60">
-                We don't hand your project off to a rotating cast of subs. Our own crews
-                handle the framing, cabinets, tile, and trim. We show up. We finish on
-                time. And when we're done, we stand behind the work.
+              <p className="prose-lede text-white/58">
+                We don't hand your project off to a rotating cast of subs. Our
+                own crews handle framing, cabinets, tile, and trim. We show up.
+                We finish on time. And when we're done, we stand behind the
+                work.
               </p>
             </Reveal>
           </div>
 
           <Reveal delay={0.15}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12 border-t border-white/10 pt-10 max-w-xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12 border-t border-white/[0.07] pt-10 max-w-xl">
               {Object.values(BUSINESS.contacts).map(c => (
                 <div key={c.name}>
-                  <div className="kicker text-[#C9A96A]/85">{c.role}</div>
-                  <div className="font-display text-white text-xl md:text-2xl tracking-[-0.01em] mt-3">{c.name}</div>
-                  <a href={`tel:${c.tel}`} className="mt-2 inline-flex items-center gap-2 text-[#C9A96A] hover:text-white transition-colors text-[15px] tabular">
+                  <div className="text-[11px] tracking-[0.14em] uppercase text-[#C9A96A]/85 font-medium">{c.role}</div>
+                  <div className="font-display font-semibold text-white text-[18px] md:text-[20px] tracking-[-0.015em] mt-2.5">{c.name}</div>
+                  <a href={`tel:${c.tel}`} className="mt-1.5 inline-flex items-center gap-2 text-[#C9A96A] hover:text-white transition-colors text-[14px] tabular font-medium">
                     <Icon name="phone" className="w-3.5 h-3.5" /> {c.phone}
                   </a>
                 </div>
@@ -869,7 +848,7 @@ function About() {
 }
 
 /* ============================================================================
-   REVIEWS — refined pull quote card, no giant background quotes
+   REVIEWS
    ========================================================================== */
 
 function Reviews() {
@@ -881,17 +860,16 @@ function Reviews() {
         <Reveal>
           <SectionHeader
             number="05"
-            kicker="Client Voices"
-            title="Real"
-            chromeWord="Reviews."
-            lede="Pulled straight from our Facebook page."
+            kicker="Client voices"
+            title="In their words."
             align="center"
+            maxTitleWidth="18ch"
           />
         </Reveal>
 
         <Reveal delay={0.1}>
           <div className="card mt-16 md:mt-24 p-10 sm:p-14 lg:p-20 relative overflow-hidden">
-            <div className="absolute top-8 left-8 md:top-12 md:left-12 font-display text-[96px] leading-none text-[#C9A96A]/20 select-none">"</div>
+            <div className="absolute top-8 left-8 md:top-12 md:left-12 font-display font-bold text-[96px] leading-none text-[#C9A96A]/18 select-none">"</div>
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -907,16 +885,16 @@ function Reviews() {
                   ))}
                 </div>
 
-                <blockquote className="font-display text-[19px] sm:text-[24px] md:text-[28px] lg:text-[34px] leading-[1.32] tracking-[-0.015em] text-white/95 mt-8 relative z-10 max-w-4xl">
+                <blockquote className="font-display font-medium text-[18px] sm:text-[22px] md:text-[26px] lg:text-[30px] leading-[1.4] tracking-[-0.015em] text-white/92 mt-8 relative z-10 max-w-4xl">
                   {r.text}
                 </blockquote>
 
-                <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-end justify-between gap-4">
+                <div className="mt-10 pt-6 border-t border-white/[0.08] flex flex-wrap items-end justify-between gap-4">
                   <div>
-                    <div className="font-display text-white text-xl tracking-[-0.01em]">{r.author}</div>
-                    <div className="kicker mt-2">{r.project} · {r.location}</div>
+                    <div className="font-display font-semibold text-white text-[16px] tracking-[-0.01em]">{r.author}</div>
+                    <div className="text-[12px] text-white/50 mt-1.5 font-medium">{r.project} · {r.location}</div>
                   </div>
-                  <div className="text-[11px] tracking-[0.28em] uppercase text-white/40">
+                  <div className="text-[11px] text-white/40 font-medium">
                     Via <span className="text-[#C9A96A]">{r.source}</span>
                   </div>
                 </div>
@@ -930,7 +908,7 @@ function Reviews() {
             <button
               key={i}
               onClick={() => setIdx(i)}
-              className={`h-px transition-all duration-500 ${i === idx ? 'w-16 bg-[#C9A96A]' : 'w-8 bg-white/20 hover:bg-white/40'}`}
+              className={`h-px transition-all duration-500 ${i === idx ? 'w-16 bg-[#C9A96A]' : 'w-8 bg-white/18 hover:bg-white/35'}`}
               aria-label={`Review ${i + 1}`}
               aria-current={i === idx}
             />
@@ -942,7 +920,7 @@ function Reviews() {
 }
 
 /* ============================================================================
-   AREAS SERVED — refined
+   AREAS SERVED
    ========================================================================== */
 
 function AreasServed() {
@@ -951,13 +929,12 @@ function AreasServed() {
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
         <div className="lg:col-span-4">
           <Reveal>
-            <Kicker className="mb-5">Service Area</Kicker>
-            <h3 className="font-display text-2xl md:text-3xl leading-[1.15] tracking-[-0.015em] text-white">
-              Based in Spencerport,<br />
-              <span className="text-chrome">serving Rochester.</span>
+            <Eyebrow label="Service area" />
+            <h3 className="font-display font-semibold text-[22px] md:text-[26px] leading-[1.25] tracking-[-0.015em] text-white mt-5 max-w-[16ch]">
+              Based in Spencerport, serving Rochester.
             </h3>
-            <p className="text-white/55 text-[15px] leading-[1.75] mt-5 max-w-sm">
-              Working across Monroe County and the greater Rochester area — kitchens to full renovations.
+            <p className="text-white/55 text-[14.5px] leading-[1.7] mt-5 max-w-sm">
+              Working across Monroe County and the greater Rochester area — kitchens through full renovations.
             </p>
           </Reveal>
         </div>
@@ -966,7 +943,7 @@ function AreasServed() {
             <ul className="flex flex-wrap gap-2 md:gap-2.5">
               {AREAS.map(a => (
                 <li key={a}>
-                  <span className="inline-flex items-center gap-2 border border-white/12 text-white/72 text-[11px] tracking-[0.24em] uppercase px-4 py-2.5 hover:border-[#C9A96A]/50 hover:text-white transition-colors">
+                  <span className="inline-flex items-center gap-2 border border-white/[0.1] text-white/70 text-[12px] font-medium px-4 py-2.5 hover:border-[#C9A96A]/45 hover:text-white transition-colors">
                     <span className="w-1 h-1 rounded-full bg-[#C9A96A]" />
                     {a}
                   </span>
@@ -981,7 +958,7 @@ function AreasServed() {
 }
 
 /* ============================================================================
-   CONTACT — refined form, AJAX submission, branded auto-response
+   CONTACT
    ========================================================================== */
 
 function Contact() {
@@ -1043,13 +1020,13 @@ function Contact() {
       <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
         <div className="lg:col-span-5">
           <Reveal>
-            <Kicker className="mb-6">06 · Start the Project</Kicker>
-            <h2 className="font-display text-[30px] sm:text-[44px] lg:text-[56px] leading-[0.98] tracking-[-0.02em] text-white">
-              Get in <span className="text-chrome">Touch.</span>
+            <Eyebrow number="06" label="Start a project" />
+            <h2 className="font-display font-semibold text-[26px] sm:text-[32px] lg:text-[40px] leading-[1.18] tracking-[-0.02em] text-[#F5F3EE] mt-6 max-w-[16ch]">
+              Get in touch with our team.
             </h2>
           </Reveal>
           <Reveal delay={0.05}>
-            <p className="prose-lede text-white/60 mt-6 max-w-md">
+            <p className="prose-lede text-white/62 mt-6">
               Send us the details or just call. Free on-site estimates anywhere in the Rochester area — no hard sell, just a real conversation.
             </p>
           </Reveal>
@@ -1058,23 +1035,23 @@ function Contact() {
             <div className="mt-12 space-y-3 max-w-md">
               {Object.values(BUSINESS.contacts).map(c => (
                 <a key={c.name} href={`tel:${c.tel}`} className="card group flex items-center gap-5 p-5 md:p-6">
-                  <div className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-white/12 text-[#C9A96A] flex items-center justify-center group-hover:border-[#C9A96A]/60 group-hover:bg-[#C9A96A]/5 transition-colors shrink-0">
+                  <div className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-white/[0.1] text-[#C9A96A] flex items-center justify-center group-hover:border-[#C9A96A]/50 group-hover:bg-[#C9A96A]/[0.04] transition-colors shrink-0">
                     <Icon name="phone" className="w-4 h-4" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="kicker">{c.role}</div>
-                    <div className="font-display text-white text-lg tracking-[-0.01em] mt-1">{c.name}</div>
-                    <div className="text-[#C9A96A] text-sm mt-0.5 tabular">{c.phone}</div>
+                    <div className="text-[11px] tracking-[0.14em] uppercase text-white/50 font-medium">{c.role}</div>
+                    <div className="font-display font-semibold text-white text-[16px] tracking-[-0.015em] mt-1">{c.name}</div>
+                    <div className="text-[#C9A96A] text-[14px] mt-0.5 tabular font-medium">{c.phone}</div>
                   </div>
                 </a>
               ))}
               <a href={`mailto:${BUSINESS.email}`} className="card group flex items-center gap-5 p-5 md:p-6">
-                <div className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-white/12 text-[#C9A96A] flex items-center justify-center group-hover:border-[#C9A96A]/60 group-hover:bg-[#C9A96A]/5 transition-colors shrink-0">
+                <div className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-white/[0.1] text-[#C9A96A] flex items-center justify-center group-hover:border-[#C9A96A]/50 group-hover:bg-[#C9A96A]/[0.04] transition-colors shrink-0">
                   <Icon name="mail" className="w-4 h-4" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="kicker">Email</div>
-                  <div className="text-[#C9A96A] text-sm mt-1 break-all">{BUSINESS.email}</div>
+                  <div className="text-[11px] tracking-[0.14em] uppercase text-white/50 font-medium">Email</div>
+                  <div className="text-[#C9A96A] text-[14px] mt-1 break-all">{BUSINESS.email}</div>
                 </div>
               </a>
             </div>
@@ -1092,25 +1069,25 @@ function Contact() {
               <input type="text" name="_honey" tabIndex="-1" autoComplete="off" className="absolute -left-[9999px] opacity-0" aria-hidden="true" />
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
-                <Field label="Full Name" name="name" required error={errors.name} placeholder="Jane Doe" autoComplete="name" />
+                <Field label="Full name" name="name" required error={errors.name} placeholder="Jane Doe" autoComplete="name" />
                 <Field label="Phone" name="phone" type="tel" required error={errors.phone} placeholder="(585) 555-0123" autoComplete="tel" />
                 <Field className="sm:col-span-2" label="Email" name="email" type="email" required error={errors.email} placeholder="jane@email.com" autoComplete="email" />
-                <SelectField label="Project Type" name="project_type" options={['Kitchen Remodel', 'Bathroom Remodel', 'Home Addition', 'Basement Finishing', 'Basement Egress', 'Deck / Outdoor', 'Siding / Windows', 'Tile / Trim', 'Full Renovation', 'Other']} />
+                <SelectField label="Project type" name="project_type" options={['Kitchen remodel', 'Bathroom remodel', 'Home addition', 'Basement finishing', 'Basement egress', 'Deck / outdoor', 'Siding / windows', 'Tile / trim', 'Full renovation', 'Other']} />
                 <SelectField label="Timeline" name="timeline" options={['ASAP', 'Within 1–3 months', '3–6 months', 'Just exploring']} />
-                <Field className="sm:col-span-2" label="Project Location" name="location" placeholder="City or neighborhood" />
+                <Field className="sm:col-span-2" label="Project location" name="location" placeholder="City or neighborhood" />
                 <TextArea className="sm:col-span-2" label="Tell us about the project" name="message" required error={errors.message} placeholder="Rough scope, rooms involved, anything specific we should know…" />
               </div>
 
-              <div className="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-5 pt-4 border-t border-white/10">
-                <p className="text-[11px] tracking-[0.24em] uppercase text-white/40 leading-relaxed">
-                  We respond within 24 hrs · Mon–Fri 7a–6p
+              <div className="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-5 pt-4 border-t border-white/[0.07]">
+                <p className="text-[12px] text-white/45 font-medium">
+                  We respond within 24 hrs · Mon–Fri, 7a–6p
                 </p>
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
                   className="btn btn-primary disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {status === 'submitting' ? 'Sending…' : 'Send Project Details'}
+                  {status === 'submitting' ? 'Sending…' : 'Send project details'}
                   {status !== 'submitting' && <span className="arrow-slide"><Icon name="arrow" className="w-3 h-3" /></span>}
                 </button>
               </div>
@@ -1123,11 +1100,11 @@ function Contact() {
                     exit={{ opacity: 0 }}
                     role="status"
                     aria-live="polite"
-                    className="border-l-2 border-[#C9A96A] bg-[#C9A96A]/[0.06] p-5"
+                    className="border-l-2 border-[#C9A96A] bg-[#C9A96A]/[0.05] p-5"
                   >
-                    <div className="font-display text-white text-lg tracking-[-0.01em]">Thank you — we received your request.</div>
+                    <div className="font-display font-semibold text-white text-[16px] tracking-[-0.01em]">Thank you — we received your request.</div>
                     <p className="text-white/65 text-[14px] leading-relaxed mt-2">
-                      Ron or Josh will be in touch within one business day. If you need us today, Ron is at <a href="tel:585-737-7521" className="text-[#C9A96A] hover:text-white transition-colors tabular">(585) 737-7521</a>.
+                      Ron or Josh will be in touch within one business day. If you need us today, Ron is at <a href="tel:585-737-7521" className="text-[#C9A96A] hover:text-white transition-colors tabular font-medium">(585) 737-7521</a>.
                     </p>
                   </motion.div>
                 )}
@@ -1193,7 +1170,7 @@ function TextArea({ label, name, required, error, placeholder, className = '' })
 }
 
 /* ============================================================================
-   FOOTER — expanded enterprise structure
+   FOOTER
    ========================================================================== */
 
 function Footer() {
@@ -1201,39 +1178,38 @@ function Footer() {
   return (
     <footer className="relative bg-[#070707] border-t border-white/[0.05] pt-24 md:pt-32 pb-10">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
-        {/* Top: brand + big CTA */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 pb-16 md:pb-24 border-b border-white/[0.06]">
           <div className="lg:col-span-6">
             <div className="flex items-center gap-4">
-              <div className="h-16 w-16 md:h-20 md:w-20 overflow-hidden ring-1 ring-white/12 shrink-0">
+              <div className="h-14 w-14 md:h-16 md:w-16 overflow-hidden ring-1 ring-[#C9A96A]/20 shrink-0">
                 <img src="/logo/logo.jpg" alt="R.J. Griffin Construction" className="w-full h-full object-cover" />
               </div>
               <div>
-                <div className="font-display text-white text-lg md:text-xl tracking-[0.16em]">R.J GRIFFIN</div>
-                <div className="text-[10px] md:text-[11px] tracking-[0.32em] text-white/50 mt-1.5">CONSTRUCTION · EST. 1986</div>
+                <div className="font-display font-semibold text-white text-[16px] md:text-[17px] tracking-[-0.01em]">R.J. Griffin</div>
+                <div className="text-[10px] md:text-[11px] tracking-[0.14em] text-white/50 mt-1.5 font-medium">Construction · Est. 1986</div>
               </div>
             </div>
-            <p className="prose-lede text-white/55 mt-8 max-w-lg">
+            <p className="prose-lede text-white/55 mt-7 max-w-lg">
               Family-owned general contractor based in Spencerport, NY.
               Kitchens, baths, additions, basement egress, and full home
               renovations across the Rochester area for forty years.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4 text-[11px] tracking-[0.28em] uppercase text-white/40">
+            <div className="mt-7 flex flex-wrap items-center gap-4 text-[11px] text-white/40 font-medium">
               <span className="inline-flex items-center gap-2"><Icon name="shield" className="w-3.5 h-3.5 text-[#C9A96A]" /> A+ BBB</span>
               <span className="w-1 h-1 bg-white/20 rounded-full" />
-              <span>Fully Insured</span>
+              <span>Fully insured</span>
               <span className="w-1 h-1 bg-white/20 rounded-full" />
-              <span>Locally Owned</span>
+              <span>Locally owned</span>
             </div>
           </div>
-          <div className="lg:col-span-6 lg:pl-10 lg:border-l border-white/[0.08]">
-            <span className="kicker">Ready to Build?</span>
-            <div className="font-display text-xl sm:text-2xl md:text-[28px] text-white leading-[1.2] tracking-[-0.015em] mt-4 max-w-md">
-              Request an on-site estimate — <span className="text-chrome">no obligation.</span>
+          <div className="lg:col-span-6 lg:pl-10 lg:border-l border-white/[0.06]">
+            <span className="kicker">Ready to build?</span>
+            <div className="font-display font-semibold text-[20px] sm:text-[24px] md:text-[28px] text-white leading-[1.2] tracking-[-0.02em] mt-4 max-w-md">
+              Request an on-site estimate — no obligation.
             </div>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-7 flex flex-wrap gap-4">
               <a href="#contact" className="btn btn-primary">
-                Start a Project
+                Start a project
                 <span className="arrow-slide"><Icon name="arrow" className="w-3 h-3" /></span>
               </a>
               <a href={`tel:${BUSINESS.contacts.ron.tel}`} className="btn btn-secondary">
@@ -1244,14 +1220,13 @@ function Footer() {
           </div>
         </div>
 
-        {/* Enterprise link matrix */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 md:gap-10 py-16 md:py-20 border-b border-white/[0.06]">
           <FooterCol title="Office">
-            <div className="text-white/65 text-[14px] leading-[1.75]">
+            <div className="text-white/62 text-[14px] leading-[1.7]">
               1753 Manitou Road<br />Spencerport, NY 14559
             </div>
             <div className="mt-4">
-              <a href="https://maps.google.com/?q=1753+Manitou+Road+Spencerport+NY+14559" target="_blank" rel="noopener noreferrer" className="text-[#C9A96A] hover:text-white transition-colors text-[13px] inline-flex items-center gap-1.5">
+              <a href="https://maps.google.com/?q=1753+Manitou+Road+Spencerport+NY+14559" target="_blank" rel="noopener noreferrer" className="text-[#C9A96A] hover:text-white transition-colors text-[13px] inline-flex items-center gap-1.5 font-medium">
                 Get directions <Icon name="arrow" className="w-3 h-3" />
               </a>
             </div>
@@ -1261,10 +1236,10 @@ function Footer() {
             <FooterLink href={`tel:${BUSINESS.contacts.ron.tel}`}>Ron · {BUSINESS.contacts.ron.phone}</FooterLink>
             <FooterLink href={`tel:${BUSINESS.contacts.josh.tel}`}>Josh · {BUSINESS.contacts.josh.phone}</FooterLink>
             <FooterLink href={`mailto:${BUSINESS.email}`} className="break-all">{BUSINESS.email}</FooterLink>
-            <div className="text-white/50 text-[12px] mt-3">Mon–Fri · 7:00 AM – 6:00 PM</div>
+            <div className="text-white/48 text-[12px] mt-3 font-medium">Mon–Fri · 7:00 AM – 6:00 PM</div>
           </FooterCol>
 
-          <FooterCol title="Quick Links">
+          <FooterCol title="Quick links">
             <FooterLink href="#services">Services</FooterLink>
             <FooterLink href="#before-after">Transformations</FooterLink>
             <FooterLink href="#gallery">Work</FooterLink>
@@ -1274,22 +1249,22 @@ function Footer() {
           </FooterCol>
 
           <FooterCol title="Careers">
-            <p className="text-white/55 text-[13px] leading-relaxed">Always looking for craftsmen who take pride in their work.</p>
+            <p className="text-white/55 text-[13px] leading-[1.65]">Always looking for craftsmen who take pride in their work.</p>
             <FooterLink href={`mailto:${BUSINESS.email}?subject=Careers%20Inquiry`}>Send resume →</FooterLink>
           </FooterCol>
 
           <FooterCol title="Safety">
-            <ul className="space-y-2.5 text-white/60 text-[13px] leading-relaxed">
+            <ul className="space-y-2.5 text-white/58 text-[13px] leading-[1.65]">
               <li className="flex gap-2"><span className="text-[#C9A96A]">›</span>OSHA-compliant crews</li>
-              <li className="flex gap-2"><span className="text-[#C9A96A]">›</span>Fully insured & bonded</li>
+              <li className="flex gap-2"><span className="text-[#C9A96A]">›</span>Fully insured &amp; bonded</li>
               <li className="flex gap-2"><span className="text-[#C9A96A]">›</span>Clean-site policy</li>
-              <li className="flex gap-2"><span className="text-[#C9A96A]">›</span>Written scope & warranty</li>
+              <li className="flex gap-2"><span className="text-[#C9A96A]">›</span>Written scope &amp; warranty</li>
             </ul>
           </FooterCol>
 
           <FooterCol title="Follow">
-            <a href={BUSINESS.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-white/70 hover:text-[#C9A96A] transition-colors text-[13px]">
-              <span className="w-9 h-9 rounded-full border border-white/12 flex items-center justify-center">
+            <a href={BUSINESS.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-white/70 hover:text-[#C9A96A] transition-colors text-[13px] font-medium">
+              <span className="w-9 h-9 rounded-full border border-white/[0.1] flex items-center justify-center">
                 <Icon name="facebook" className="w-4 h-4" />
               </span>
               Facebook
@@ -1297,12 +1272,11 @@ function Footer() {
           </FooterCol>
         </div>
 
-        {/* Bottom line */}
         <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-white/40 text-[11px] tracking-[0.28em] uppercase">
+          <div className="text-white/40 text-[12px] font-medium">
             © {year} R.J. Griffin Construction. All rights reserved.
           </div>
-          <div className="flex items-center gap-6 text-[11px] tracking-[0.28em] uppercase text-white/40">
+          <div className="flex items-center gap-6 text-[12px] text-white/40 font-medium">
             <a href="#" className="hover:text-white/70 transition-colors">Privacy</a>
             <a href="#" className="hover:text-white/70 transition-colors">Terms</a>
             <a href="#" className="hover:text-white/70 transition-colors">Accessibility</a>
@@ -1316,7 +1290,7 @@ function Footer() {
 function FooterCol({ title, children }) {
   return (
     <div>
-      <div className="text-[11px] tracking-[0.32em] uppercase font-semibold text-white mb-6 pb-4 border-b border-white/[0.06]">{title}</div>
+      <div className="text-[11px] tracking-[0.14em] uppercase font-semibold text-white mb-6 pb-4 border-b border-white/[0.06]">{title}</div>
       <div className="space-y-2.5">{children}</div>
     </div>
   );
@@ -1324,7 +1298,7 @@ function FooterCol({ title, children }) {
 
 function FooterLink({ href, children, className = '' }) {
   return (
-    <a href={href} className={`block text-white/65 hover:text-[#C9A96A] transition-colors text-[14px] ${className}`}>
+    <a href={href} className={`block text-white/62 hover:text-[#C9A96A] transition-colors text-[14px] font-normal ${className}`}>
       {children}
     </a>
   );
@@ -1336,13 +1310,13 @@ function FooterLink({ href, children, className = '' }) {
 
 function MobileCTA() {
   return (
-    <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0A0A0A]/95 backdrop-blur-xl border-t border-white/[0.08] grid grid-cols-2 pb-safe">
-      <a href={`tel:${BUSINESS.contacts.ron.tel}`} className="text-white/85 text-center py-4 text-[11px] tracking-[0.24em] uppercase border-r border-white/[0.08] flex items-center justify-center gap-2">
+    <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0A0A0A]/95 backdrop-blur-xl border-t border-white/[0.05] grid grid-cols-2 pb-safe">
+      <a href={`tel:${BUSINESS.contacts.ron.tel}`} className="text-white/85 text-center py-4 text-[12px] font-medium border-r border-white/[0.05] flex items-center justify-center gap-2">
         <Icon name="phone" className="w-3.5 h-3.5" />
         Call Ron
       </a>
-      <a href="#contact" className="bg-[#F5F3EE] text-black text-center py-4 text-[11px] tracking-[0.24em] uppercase flex items-center justify-center gap-2 hover:bg-[#C9A96A] transition-colors">
-        Get Quote <Icon name="arrow" className="w-3 h-3" />
+      <a href="#contact" className="bg-[#F5F3EE] text-black text-center py-4 text-[12px] font-medium flex items-center justify-center gap-2 hover:bg-[#C9A96A] transition-colors">
+        Get quote <Icon name="arrow" className="w-3 h-3" />
       </a>
     </div>
   );
@@ -1355,7 +1329,7 @@ function MobileCTA() {
 export default function RJGriffinSite() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-[#F5F3EE] antialiased pb-16 lg:pb-0 overflow-x-hidden">
-      <a href="#top" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:text-[12px] focus:tracking-widest focus:uppercase">Skip to content</a>
+      <a href="#top" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:text-[12px] focus:font-medium">Skip to content</a>
       <Header />
       <main>
         <Hero />
