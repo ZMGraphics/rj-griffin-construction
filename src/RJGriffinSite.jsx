@@ -113,7 +113,7 @@ const Icon = ({ name, className = 'w-8 h-8' }) => {
    HELPERS
    ========================================================================== */
 
-const Reveal = ({ children, delay = 0, y = 18, className = '' }) => {
+const Reveal = ({ children, delay = 0, y = 14, className = '' }) => {
   const reduce = useReducedMotion();
   if (reduce) return <div className={className}>{children}</div>;
   return (
@@ -121,8 +121,8 @@ const Reveal = ({ children, delay = 0, y = 18, className = '' }) => {
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.75, delay, ease: [0.22, 0.61, 0.36, 1] }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.9, delay, ease: [0.22, 0.61, 0.36, 1] }}
     >
       {children}
     </motion.div>
@@ -211,13 +211,13 @@ function Header() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? 'bg-[#0A0A0A]/80 backdrop-blur-xl backdrop-saturate-150 border-b border-white/[0.08]'
-          : 'bg-gradient-to-b from-black/70 via-black/25 to-transparent'
+          ? 'bg-[#0A0A0A]/72 backdrop-blur-2xl backdrop-saturate-125 border-b border-white/[0.06]'
+          : 'bg-gradient-to-b from-black/60 via-black/15 to-transparent'
       }`}
     >
-      <div className={`max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-3 md:py-4' : 'py-5 md:py-6'}`}>
+      <div className={`max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-3.5 md:py-4' : 'py-5 md:py-7'}`}>
         <a href="#top" className="flex items-center gap-3 md:gap-4 group" aria-label="RJ Griffin Construction — home">
-          <div className={`relative overflow-hidden ring-1 ring-white/10 transition-all duration-500 ${scrolled ? 'h-11 w-11 md:h-12 md:w-12' : 'h-12 w-12 md:h-16 md:w-16'}`}>
+          <div className={`relative overflow-hidden ring-1 ring-[#C9A96A]/20 transition-all duration-500 ${scrolled ? 'h-11 w-11 md:h-[52px] md:w-[52px]' : 'h-12 w-12 md:h-[68px] md:w-[68px]'}`}>
             <img src="/logo/logo.jpg" alt="" className="w-full h-full object-cover" />
           </div>
           <div className="hidden sm:block leading-tight">
@@ -314,19 +314,21 @@ function Hero() {
           aria-hidden="true"
           loading="eager"
           fetchpriority="high"
-          className="w-full h-full object-cover scale-[1.02]"
+          className="w-full h-full object-cover object-[center_35%] scale-[1.03]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-[#0A0A0A]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-transparent" />
+        {/* Editorial depth: darker top vignette, rich bottom fade, right-side softening */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-[#0A0A0A]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/65 to-black/25" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.55)_100%)]" />
       </div>
 
-      <div className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 min-h-[100svh] flex flex-col justify-center pt-32 md:pt-40 pb-24 md:pb-28">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 min-h-[100svh] flex flex-col justify-center pt-36 md:pt-44 pb-28 md:pb-32">
         <Reveal>
           <Kicker>Based in Spencerport · Serving Rochester, NY</Kicker>
         </Reveal>
 
         <Reveal delay={0.08}>
-          <h1 className="font-display text-[52px] sm:text-[92px] lg:text-[128px] xl:text-[144px] leading-[0.92] tracking-[-0.025em] mt-8 mb-8 max-w-5xl text-white">
+          <h1 className="font-display text-[44px] sm:text-[76px] lg:text-[104px] xl:text-[116px] leading-[0.94] tracking-[-0.025em] mt-8 mb-8 max-w-5xl text-white">
             Built to<br />
             <span className="text-chrome">Outlast.</span>
           </h1>
@@ -341,7 +343,7 @@ function Hero() {
         </Reveal>
 
         <Reveal delay={0.22}>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-5 mb-20">
             <a href="#contact" className="btn btn-primary">
               Start Your Project
               <span className="arrow-slide"><Icon name="arrow" className="w-3 h-3" /></span>
@@ -457,7 +459,7 @@ function SectionHeader({ number, kicker, title, chromeWord, lede, align = 'left'
       ) : (
         <Kicker className="mb-6">{number} · {kicker}</Kicker>
       )}
-      <h2 className="font-display text-[36px] sm:text-[54px] lg:text-[72px] leading-[0.95] tracking-[-0.02em] text-white">
+      <h2 className="font-display text-[30px] sm:text-[44px] lg:text-[58px] leading-[0.98] tracking-[-0.02em] text-white">
         {title}
         {chromeWord && <> <span className="text-chrome">{chromeWord}</span></>}
       </h2>
@@ -474,7 +476,7 @@ function Services() {
   const featured = SERVICES.find(s => s.featured);
   const rest = SERVICES.filter(s => !s.featured);
   return (
-    <section id="services" className="relative bg-[#0A0A0A] py-24 sm:py-32 lg:py-40">
+    <section id="services" className="relative bg-surface-1 py-28 sm:py-40 lg:py-52">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
         <Reveal>
           <SectionHeader
@@ -490,7 +492,7 @@ function Services() {
         {featured && (
           <Reveal delay={0.1}>
             <article className="card mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-5 overflow-hidden">
-              <div className="md:col-span-3 p-8 sm:p-12 lg:p-16 relative">
+              <div className="md:col-span-3 p-10 sm:p-14 lg:p-20 relative">
                 <span className="inline-flex items-center gap-2 text-[10px] tracking-[0.32em] uppercase text-[#C9A96A]">
                   <span className="w-1 h-1 rounded-full bg-[#C9A96A]" />
                   {featured.subtitle}
@@ -498,7 +500,7 @@ function Services() {
                 <div className="text-[#C9A96A] mt-8">
                   <Icon name={featured.icon} className="w-12 h-12 md:w-14 md:h-14" />
                 </div>
-                <h3 className="font-display text-[28px] sm:text-[40px] lg:text-[52px] text-white mt-6 leading-[1.02] tracking-[-0.015em] max-w-lg">
+                <h3 className="font-display text-[24px] sm:text-[32px] lg:text-[42px] text-white mt-6 leading-[1.05] tracking-[-0.015em] max-w-md">
                   {featured.title}
                 </h3>
                 <p className="prose-lede text-white/70 mt-6 max-w-xl">{featured.desc}</p>
@@ -515,9 +517,10 @@ function Services() {
                   <span className="arrow-slide"><Icon name="arrow" className="w-3 h-3" /></span>
                 </a>
               </div>
-              <div className="md:col-span-2 relative min-h-[280px] md:min-h-full hover-zoom overflow-hidden">
+              <div className="md:col-span-2 relative min-h-[300px] md:min-h-full hover-zoom overflow-hidden photo-tone">
                 <img src="/images/gallery/project-05.jpg" alt="Basement egress installation" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/15 to-[#131313]/60" />
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#121212]/70" />
+                <div className="absolute bottom-5 right-5 text-[10px] tracking-[0.32em] uppercase text-white/60">Rochester · Egress Well</div>
               </div>
             </article>
           </Reveal>
@@ -527,13 +530,13 @@ function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.06] mt-px">
           {rest.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.06}>
-              <article className="bg-[#0A0A0A] group p-8 sm:p-10 lg:p-14 h-full transition-colors duration-500 hover:bg-[#121212]">
+              <article className="bg-[#0A0A0A] group p-10 sm:p-12 lg:p-16 h-full transition-colors duration-500 hover:bg-[#101010]">
                 <div className="flex items-start gap-6 md:gap-8">
                   <div className="text-[#C9A96A] shrink-0 w-14 h-14 flex items-center justify-center rounded-full border border-white/10 transition-all duration-500 group-hover:border-[#C9A96A]/50">
                     <Icon name={s.icon} className="w-6 h-6" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-display text-xl md:text-2xl lg:text-[28px] text-white leading-tight tracking-[-0.01em]">{s.title}</h3>
+                    <h3 className="font-display text-lg md:text-xl lg:text-[23px] text-white leading-tight tracking-[-0.01em]">{s.title}</h3>
                     <p className="text-white/60 text-[15px] leading-[1.7] mt-4 max-w-md">{s.desc}</p>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mt-6 text-[13px] text-white/55">
                       {s.points.map(p => (
@@ -593,7 +596,7 @@ function BeforeAfter() {
   };
 
   return (
-    <section id="before-after" className="relative bg-[#0A0A0A] py-24 sm:py-32 lg:py-40">
+    <section id="before-after" className="relative bg-surface-2 py-28 sm:py-40 lg:py-52 border-t border-white/[0.05]">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
         <Reveal>
           <SectionHeader
@@ -692,7 +695,7 @@ function Gallery() {
   }, [lightbox]);
 
   return (
-    <section id="gallery" className="relative bg-[#0A0A0A] py-24 sm:py-32 lg:py-40 border-t border-white/[0.06]">
+    <section id="gallery" className="relative bg-surface-1 py-28 sm:py-40 lg:py-52 border-t border-white/[0.05]">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-16 md:mb-20">
           <Reveal>
@@ -712,7 +715,7 @@ function Gallery() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 auto-rows-[220px] md:auto-rows-[260px] gap-3 md:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 auto-rows-[220px] md:auto-rows-[280px] gap-4 md:gap-5">
           {GALLERY.map((img, i) => {
             const spans = [
               'row-span-2', '', '', 'col-span-2 row-span-2', '',
@@ -728,9 +731,13 @@ function Gallery() {
                   aria-label={`View project ${i + 1}`}
                 >
                   <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+                  {/* Subtle vignette + editorial bottom fade */}
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_60%,rgba(0,0,0,0.35)_100%)]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                  {/* Brass hairline reveal on hover */}
+                  <div className="absolute inset-x-4 bottom-0 h-px bg-[#C9A96A]/0 group-hover:bg-[#C9A96A]/50 transition-colors duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-                    <div className="text-[9px] md:text-[10px] tracking-[0.32em] text-white/60 uppercase">Project {String(i + 1).padStart(2, '0')}</div>
+                    <div className="text-[9px] md:text-[10px] tracking-[0.32em] text-white/65 uppercase">Project {String(i + 1).padStart(2, '0')}</div>
                     <div className="flex items-center gap-2 mt-1.5 text-[#C9A96A] text-[11px] tracking-[0.24em] uppercase opacity-0 group-hover:opacity-100 -translate-y-1 group-hover:translate-y-0 transition-all duration-500">
                       View <Icon name="arrow" className="w-3 h-3" />
                     </div>
@@ -799,17 +806,19 @@ function Gallery() {
 
 function About() {
   return (
-    <section id="about" className="relative bg-[#0A0A0A] py-24 sm:py-32 lg:py-40 border-t border-white/[0.06]">
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-center">
+    <section id="about" className="relative bg-surface-2 py-28 sm:py-40 lg:py-52 border-t border-white/[0.05] overflow-hidden">
+      <div aria-hidden="true" className="absolute inset-0 grid-hairlines opacity-40 pointer-events-none" />
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#080808] to-transparent pointer-events-none" />
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent pointer-events-none" />
+      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
         <div className="lg:col-span-5 order-2 lg:order-1">
           <Reveal>
-            <figure className="relative">
-              <div className="relative aspect-[4/5] overflow-hidden border border-white/10 hover-zoom">
+            <figure className="relative frame-brass">
+              <div className="relative aspect-[4/5] overflow-hidden border border-white/10 hover-zoom photo-tone">
                 <img src="/images/gallery/project-11.jpg" alt="R.J. Griffin project — Rochester NY" loading="lazy" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
               </div>
-              <div className="absolute -bottom-8 -right-4 md:-right-8 bg-[#F5F3EE] text-black px-8 md:px-10 py-7 md:py-8 max-w-[260px] shadow-[0_30px_60px_-30px_rgba(0,0,0,0.9)]">
-                <div className="font-display text-6xl md:text-7xl leading-none tabular"><Counter end={40} suffix="+" /></div>
+              <div className="absolute -bottom-6 -right-3 md:-right-6 bg-[#F5F3EE] text-black px-7 md:px-9 py-6 md:py-7 max-w-[240px] shadow-[0_24px_50px_-24px_rgba(0,0,0,0.9)]">
+                <div className="font-display text-5xl md:text-6xl leading-none tabular"><Counter end={40} suffix="+" /></div>
                 <div className="text-[10px] tracking-[0.32em] uppercase mt-3 text-black/70">Years building in the<br />Rochester, NY area</div>
               </div>
             </figure>
@@ -819,7 +828,7 @@ function About() {
         <div className="lg:col-span-7 order-1 lg:order-2">
           <Reveal>
             <Kicker className="mb-6">04 · Who We Are</Kicker>
-            <h2 className="font-display text-[36px] sm:text-[54px] lg:text-[68px] leading-[0.95] tracking-[-0.02em] text-white">
+            <h2 className="font-display text-[30px] sm:text-[44px] lg:text-[56px] leading-[0.98] tracking-[-0.02em] text-white">
               40 Years. <span className="text-chrome">One Name.</span>
             </h2>
           </Reveal>
@@ -867,7 +876,7 @@ function Reviews() {
   const [idx, setIdx] = useState(0);
   const r = REVIEWS[idx];
   return (
-    <section id="reviews" className="relative bg-[#0A0A0A] py-24 sm:py-32 lg:py-40 border-t border-white/[0.06]">
+    <section id="reviews" className="relative bg-surface-1 py-28 sm:py-40 lg:py-52 border-t border-white/[0.05]">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-14">
         <Reveal>
           <SectionHeader
@@ -881,8 +890,8 @@ function Reviews() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="card mt-16 md:mt-20 p-8 sm:p-12 lg:p-16 relative overflow-hidden">
-            <div className="absolute top-8 left-8 md:top-10 md:left-10 font-display text-[80px] leading-none text-[#C9A96A]/25 select-none">"</div>
+          <div className="card mt-16 md:mt-24 p-10 sm:p-14 lg:p-20 relative overflow-hidden">
+            <div className="absolute top-8 left-8 md:top-12 md:left-12 font-display text-[96px] leading-none text-[#C9A96A]/20 select-none">"</div>
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -898,7 +907,7 @@ function Reviews() {
                   ))}
                 </div>
 
-                <blockquote className="font-display text-[22px] sm:text-[30px] md:text-[36px] lg:text-[42px] leading-[1.28] tracking-[-0.015em] text-white/95 mt-8 relative z-10">
+                <blockquote className="font-display text-[19px] sm:text-[24px] md:text-[28px] lg:text-[34px] leading-[1.32] tracking-[-0.015em] text-white/95 mt-8 relative z-10 max-w-4xl">
                   {r.text}
                 </blockquote>
 
@@ -938,12 +947,12 @@ function Reviews() {
 
 function AreasServed() {
   return (
-    <section aria-label="Service area" className="relative bg-[#0A0A0A] py-16 md:py-24 border-t border-white/[0.06]">
+    <section aria-label="Service area" className="relative bg-surface-2 py-20 md:py-28 border-t border-white/[0.05]">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
         <div className="lg:col-span-4">
           <Reveal>
             <Kicker className="mb-5">Service Area</Kicker>
-            <h3 className="font-display text-3xl md:text-4xl leading-tight tracking-[-0.015em] text-white">
+            <h3 className="font-display text-2xl md:text-3xl leading-[1.15] tracking-[-0.015em] text-white">
               Based in Spencerport,<br />
               <span className="text-chrome">serving Rochester.</span>
             </h3>
@@ -1029,12 +1038,13 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="relative bg-[#0A0A0A] py-24 sm:py-32 lg:py-40 border-t border-white/[0.06]">
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 items-start">
+    <section id="contact" className="relative bg-surface-3 py-28 sm:py-40 lg:py-52 border-t border-white/[0.05] overflow-hidden">
+      <div aria-hidden="true" className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle,rgba(201,169,106,0.08)_0%,transparent_65%)] pointer-events-none" />
+      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
         <div className="lg:col-span-5">
           <Reveal>
             <Kicker className="mb-6">06 · Start the Project</Kicker>
-            <h2 className="font-display text-[36px] sm:text-[54px] lg:text-[68px] leading-[0.95] tracking-[-0.02em] text-white">
+            <h2 className="font-display text-[30px] sm:text-[44px] lg:text-[56px] leading-[0.98] tracking-[-0.02em] text-white">
               Get in <span className="text-chrome">Touch.</span>
             </h2>
           </Reveal>
@@ -1077,7 +1087,7 @@ function Contact() {
               ref={formRef}
               onSubmit={onSubmit}
               noValidate
-              className="card p-8 sm:p-10 lg:p-14 space-y-8 relative"
+              className="card p-8 sm:p-10 lg:p-14 space-y-10 relative"
             >
               <input type="text" name="_honey" tabIndex="-1" autoComplete="off" className="absolute -left-[9999px] opacity-0" aria-hidden="true" />
 
@@ -1189,10 +1199,10 @@ function TextArea({ label, name, required, error, placeholder, className = '' })
 function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative bg-[#080808] border-t border-white/[0.06] pt-20 md:pt-28 pb-10">
+    <footer className="relative bg-[#070707] border-t border-white/[0.05] pt-24 md:pt-32 pb-10">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
         {/* Top: brand + big CTA */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pb-14 md:pb-20 border-b border-white/[0.08]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 pb-16 md:pb-24 border-b border-white/[0.06]">
           <div className="lg:col-span-6">
             <div className="flex items-center gap-4">
               <div className="h-16 w-16 md:h-20 md:w-20 overflow-hidden ring-1 ring-white/12 shrink-0">
@@ -1218,7 +1228,7 @@ function Footer() {
           </div>
           <div className="lg:col-span-6 lg:pl-10 lg:border-l border-white/[0.08]">
             <span className="kicker">Ready to Build?</span>
-            <div className="font-display text-2xl sm:text-3xl md:text-4xl text-white leading-[1.15] tracking-[-0.015em] mt-4 max-w-md">
+            <div className="font-display text-xl sm:text-2xl md:text-[28px] text-white leading-[1.2] tracking-[-0.015em] mt-4 max-w-md">
               Request an on-site estimate — <span className="text-chrome">no obligation.</span>
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -1235,7 +1245,7 @@ function Footer() {
         </div>
 
         {/* Enterprise link matrix */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 md:gap-8 py-14 md:py-16 border-b border-white/[0.08]">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 md:gap-10 py-16 md:py-20 border-b border-white/[0.06]">
           <FooterCol title="Office">
             <div className="text-white/65 text-[14px] leading-[1.75]">
               1753 Manitou Road<br />Spencerport, NY 14559
@@ -1288,7 +1298,7 @@ function Footer() {
         </div>
 
         {/* Bottom line */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-white/40 text-[11px] tracking-[0.28em] uppercase">
             © {year} R.J. Griffin Construction. All rights reserved.
           </div>
@@ -1306,8 +1316,8 @@ function Footer() {
 function FooterCol({ title, children }) {
   return (
     <div>
-      <div className="kicker text-white/85 mb-5">{title}</div>
-      <div className="space-y-2">{children}</div>
+      <div className="text-[11px] tracking-[0.32em] uppercase font-semibold text-white mb-6 pb-4 border-b border-white/[0.06]">{title}</div>
+      <div className="space-y-2.5">{children}</div>
     </div>
   );
 }
