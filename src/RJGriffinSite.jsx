@@ -238,12 +238,12 @@ function Header() {
           : 'bg-gradient-to-b from-black/55 via-black/10 to-transparent'
       }`}
     >
-      <div className={`max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-2.5 md:py-3' : 'py-3.5 md:py-4'}`}>
+      <div className={`max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-3 md:py-3.5' : 'py-4 md:py-5'}`}>
         <a href="#top" className="flex items-center group leading-none min-w-0" aria-label="R.J. Griffin Construction, home">
           <img
             src="/logo/rjg-nav.svg"
             alt="R.J. Griffin Construction"
-            className={`w-auto object-contain transition-all duration-500 max-w-[70vw] sm:max-w-none ${scrolled ? 'h-8 md:h-10' : 'h-10 md:h-12'}`}
+            className={`w-auto object-contain transition-all duration-500 max-w-[70vw] sm:max-w-none ${scrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'}`}
           />
         </a>
 
