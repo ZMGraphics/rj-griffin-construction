@@ -321,26 +321,40 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="top" className="relative bg-[#0A0A0A]">
-      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[100svh]">
-        {/* Left panel: content, dark */}
-        <div className="lg:col-span-5 xl:col-span-5 relative flex flex-col justify-between px-6 sm:px-10 lg:px-14 xl:px-20 pt-32 lg:pt-40 pb-16 lg:pb-14 order-2 lg:order-1">
+    <section id="top" className="relative min-h-[100svh] overflow-hidden bg-[#0A0A0A]">
+      {/* Image layer: full-bleed on mobile with overlay, right-panel only on desktop */}
+      <div className="absolute inset-0 lg:left-[41.666667%]">
+        <img
+          src="/images/site/hero.jpg"
+          alt="R.J. Griffin Construction, recent kitchen remodel in Rochester NY"
+          loading="eager"
+          fetchpriority="high"
+          className="w-full h-full object-cover object-[center_35%]"
+        />
+        {/* Mobile-only overlays — invisible above lg where image lives beside content */}
+        <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0A0A0A]" />
+        <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-black/15" />
+      </div>
+
+      {/* Content grid */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 min-h-[100svh]">
+        <div className="lg:col-span-5 relative flex flex-col justify-between px-6 sm:px-10 lg:px-14 xl:px-20 pt-32 lg:pt-40 pb-20 lg:pb-14">
           <div className="max-w-[520px]">
             <Reveal>
               <div className="flex items-center gap-3">
                 <span className="w-8 h-px bg-[#C9A96A]" />
-                <span className="text-[11px] font-medium tracking-[0.14em] text-white/55">R.J. Griffin Construction, LLC</span>
+                <span className="text-[11px] font-medium tracking-[0.14em] text-white/70 lg:text-white/55">R.J. Griffin Construction, LLC</span>
               </div>
             </Reveal>
 
             <Reveal delay={0.08}>
-              <h1 className="font-display font-bold text-[36px] sm:text-[42px] lg:text-[48px] xl:text-[56px] leading-[1.08] tracking-[-0.025em] text-[#F5F3EE] mt-8">
+              <h1 className="font-display font-bold text-[36px] sm:text-[44px] lg:text-[48px] xl:text-[56px] leading-[1.08] tracking-[-0.025em] text-[#F5F3EE] mt-8 [text-shadow:0_2px_20px_rgba(0,0,0,0.4)] lg:[text-shadow:none]">
                 Building homes<br />that outlast us.
               </h1>
             </Reveal>
 
             <Reveal delay={0.15}>
-              <p className="prose-lede text-white/68 mt-7">
+              <p className="prose-lede text-white/85 lg:text-white/68 mt-7">
                 A family-run general contractor in Spencerport, NY. Kitchens,
                 baths, additions, and basement egress across the Rochester area
                 for forty years. Our own crews on every project.
@@ -359,28 +373,18 @@ function Hero() {
 
           {/* Bottom whisper: single hairline credentials row */}
           <Reveal delay={0.28}>
-            <div className="mt-16 pt-6 border-t border-white/[0.05] flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-medium text-white/45">
+            <div className="mt-16 pt-6 border-t border-white/[0.12] lg:border-white/[0.05] flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-medium text-white/60 lg:text-white/45">
               <span className="text-[#C9A96A] tabular"><Counter end={40} suffix="+ years" /></span>
-              <span className="w-1 h-1 rounded-full bg-white/15" />
+              <span className="w-1 h-1 rounded-full bg-white/25" />
               <span>A+ BBB accredited</span>
-              <span className="w-1 h-1 rounded-full bg-white/15" />
+              <span className="w-1 h-1 rounded-full bg-white/25" />
               <span>Family owned</span>
-              <span className="w-1 h-1 rounded-full bg-white/15" />
+              <span className="w-1 h-1 rounded-full bg-white/25" />
               <span>Own crews</span>
             </div>
           </Reveal>
         </div>
-
-        {/* Right panel: photograph as photograph */}
-        <div className="lg:col-span-7 xl:col-span-7 relative overflow-hidden bg-[#0A0A0A] min-h-[52vh] lg:min-h-full order-1 lg:order-2">
-          <img
-            src="/images/site/hero.jpg"
-            alt="R.J. Griffin Construction, recent kitchen remodel in Rochester NY"
-            loading="eager"
-            fetchpriority="high"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
+        <div className="hidden lg:block lg:col-span-7" />
       </div>
     </section>
   );
