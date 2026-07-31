@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 /* ============================================================================
    R.J. GRIFFIN CONSTRUCTION
-   Typography as architecture — Geist + Inter, weight-driven hierarchy,
+   Typography as architecture. Geist + Inter, weight-driven hierarchy,
    editorial restraint over marketing. LeChase / Shaefco reference.
    ========================================================================== */
 
@@ -24,26 +24,26 @@ const SERVICES = [
   {
     title: 'Basement egress solutions',
     subtitle: 'Specialized division',
-    desc: 'Code-compliant basement egress windows and wells, installed by a crew that does this every week. We cut, install, and waterproof — no subs, no learning curve on your project.',
+    desc: 'Code-compliant basement egress windows and wells, installed by a crew that does this every week. We cut them, install them, and waterproof them ourselves.',
     icon: 'egress',
     featured: true,
     points: ['Code-compliant window wells', 'Egress cutouts and installations', 'Waterproofing and drainage', 'Safety-rated for finished basements'],
   },
   {
     title: 'Home remodels and additions',
-    desc: 'Whole-house remodels, room additions, and structural work — built to match what you already have so it looks like it was always there.',
+    desc: 'Whole-house remodels, room additions, and structural work. Built to match what you already have, so it looks like it was always there.',
     icon: 'add',
     points: ['Room and second-story additions', 'Whole-house remodels', 'Structural updates', 'Basement finishing'],
   },
   {
     title: 'Kitchens and bathrooms',
-    desc: 'Full kitchen and bath remodels — cabinetry, countertops, custom tile, plumbing, lighting, and layout changes. We handle every piece.',
+    desc: 'Full kitchen and bath remodels. Cabinetry, countertops, custom tile, plumbing, lighting, and layout changes. We handle every piece.',
     icon: 'kitchen',
     points: ['Custom cabinetry and countertops', 'Layout redesign', 'Tile showers and backsplashes', 'Vanities, tubs, and plumbing'],
   },
   {
     title: 'Exteriors',
-    desc: 'Vinyl and specialty siding, replacement windows, trim, and decks — built for Rochester winters and priced fair.',
+    desc: 'Vinyl and specialty siding, replacement windows, trim, and decks. Built for Rochester winters and priced fair.',
     icon: 'siding',
     points: ['Vinyl and specialty siding', 'Replacement windows', 'Trim, soffit, and fascia', 'Decks and outdoor spaces'],
   },
@@ -76,7 +76,7 @@ const REVIEWS = [
 
 const GALLERY = Array.from({ length: 16 }, (_, i) => ({
   src: `/images/gallery/project-${String(i + 1).padStart(2, '0')}.jpg`,
-  alt: `R.J. Griffin Construction project ${i + 1} — Rochester NY remodel`,
+  alt: `R.J. Griffin Construction project ${i + 1}, Rochester NY remodel`,
 }));
 
 const AREAS = ['Spencerport', 'Rochester', 'Brockport', 'Hilton', 'Greece', 'Chili', 'Gates', 'Pittsford', 'Fairport', 'Webster', 'Penfield', 'Henrietta', 'Irondequoit', 'Brighton', 'Monroe County'];
@@ -129,7 +129,7 @@ const Reveal = ({ children, delay = 0, y = 10, className = '' }) => {
   );
 };
 
-/* Editorial section eyebrow — hairline + label. No section numbers. */
+/* Editorial section eyebrow: hairline + label. No section numbers. */
 const Eyebrow = ({ label, align = 'left' }) => (
   <div className={`flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}>
     <span className="w-6 h-px bg-[#C9A96A]" />
@@ -137,7 +137,7 @@ const Eyebrow = ({ label, align = 'left' }) => (
   </div>
 );
 
-/* Section header — sentence case, restrained scale, weight-driven */
+/* Section header. Sentence case, restrained scale, weight-driven. */
 const SectionHeader = ({ kicker, title, lede, align = 'left', maxTitleWidth = '20ch' }) => (
   <div className={`${align === 'center' ? 'mx-auto text-center' : ''} max-w-3xl`}>
     <Eyebrow label={kicker} align={align} />
@@ -228,7 +228,7 @@ function Header() {
       }`}
     >
       <div className={`max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-3.5 md:py-4' : 'py-5 md:py-7'}`}>
-        <a href="#top" className="flex items-center gap-3.5 group" aria-label="R.J. Griffin Construction — home">
+        <a href="#top" className="flex items-center gap-3.5 group" aria-label="R.J. Griffin Construction, home">
           <div className={`relative overflow-hidden transition-all duration-500 ${scrolled ? 'h-10 w-10 md:h-12 md:w-12' : 'h-11 w-11 md:h-14 md:w-14'}`}>
             <img src="/logo/logo.jpg" alt="" className="w-full h-full object-cover" />
           </div>
@@ -320,7 +320,7 @@ function Hero() {
   return (
     <section id="top" className="relative bg-[#0A0A0A]">
       <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[100svh]">
-        {/* Left panel — content, dark */}
+        {/* Left panel: content, dark */}
         <div className="lg:col-span-5 xl:col-span-5 relative flex flex-col justify-between px-6 sm:px-10 lg:px-14 xl:px-20 pt-32 lg:pt-40 pb-16 lg:pb-14 order-2 lg:order-1">
           <div className="max-w-[520px]">
             <Reveal>
@@ -338,9 +338,9 @@ function Hero() {
 
             <Reveal delay={0.15}>
               <p className="prose-lede text-white/68 mt-7">
-                A family-run general contractor in Spencerport, NY —
-                kitchens, baths, additions, and basement egress across the
-                Rochester area for forty years. Our own crews, start to finish.
+                A family-run general contractor in Spencerport, NY. Kitchens,
+                baths, additions, and basement egress across the Rochester area
+                for forty years. Our own crews on every project.
               </p>
             </Reveal>
 
@@ -354,7 +354,7 @@ function Hero() {
             </Reveal>
           </div>
 
-          {/* Bottom whisper — replaces the stats grid; single hairline row */}
+          {/* Bottom whisper: single hairline credentials row */}
           <Reveal delay={0.28}>
             <div className="mt-16 pt-6 border-t border-white/[0.05] flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-medium text-white/45">
               <span className="text-[#C9A96A] tabular"><Counter end={40} suffix="+ years" /></span>
@@ -368,11 +368,11 @@ function Hero() {
           </Reveal>
         </div>
 
-        {/* Right panel — photograph as photograph */}
+        {/* Right panel: photograph as photograph */}
         <div className="lg:col-span-7 xl:col-span-7 relative overflow-hidden bg-[#0A0A0A] min-h-[52vh] lg:min-h-full order-1 lg:order-2">
           <img
             src="/images/site/hero.jpg"
-            alt="R.J. Griffin Construction — recent kitchen remodel, Rochester NY"
+            alt="R.J. Griffin Construction, recent kitchen remodel in Rochester NY"
             loading="eager"
             fetchpriority="high"
             className="absolute inset-0 w-full h-full object-cover"
@@ -384,7 +384,7 @@ function Hero() {
 }
 
 /* ============================================================================
-   CAPABILITIES BAND — quiet static row
+   CAPABILITIES BAND: quiet static row
    ========================================================================== */
 
 function Capabilities() {
@@ -410,7 +410,7 @@ function Capabilities() {
 }
 
 /* ============================================================================
-   TRUST — quiet 4-up
+   TRUST: quiet 4-up
    ========================================================================== */
 
 function TrustBadges() {
@@ -521,7 +521,7 @@ function Services() {
 }
 
 /* ============================================================================
-   BEFORE / AFTER — draggable comparison
+   BEFORE / AFTER: draggable comparison
    ========================================================================== */
 
 function BeforeAfter() {
@@ -564,7 +564,7 @@ function BeforeAfter() {
         <Reveal>
           <SectionHeader
             kicker="Transformations"
-            title="Same room. New life."
+            title="Before and after."
             lede="Drag the divider to see a recent Rochester sunroom refinished by our crew."
             maxTitleWidth="16ch"
           />
@@ -762,7 +762,7 @@ function About() {
           <Reveal>
             <figure>
               <div className="relative aspect-[4/5] overflow-hidden hover-zoom">
-                <img src="/images/gallery/project-11.jpg" alt="R.J. Griffin project — Rochester NY" loading="lazy" className="w-full h-full object-cover" />
+                <img src="/images/gallery/project-11.jpg" alt="R.J. Griffin project in Rochester NY" loading="lazy" className="w-full h-full object-cover" />
               </div>
               <figcaption className="mt-4 flex items-center justify-between text-[11px] tracking-[0.12em] uppercase text-white/45 font-medium">
                 <span>Recent work</span>
@@ -783,7 +783,7 @@ function About() {
             <Reveal delay={0.05}>
               <p className="prose-lede text-white/72">
                 Ron Griffin started R.J. Griffin Construction in 1986. Forty
-                years later, the company is still here — still family-run, and
+                years later, the company is still here, still family-run, and
                 still doing the work itself. Ron's son Josh handles day-to-day
                 operations.
               </p>
@@ -791,9 +791,8 @@ function About() {
             <Reveal delay={0.1}>
               <p className="prose-lede text-white/58">
                 We don't hand your project off to a rotating cast of subs. Our
-                own crews handle framing, cabinets, tile, and trim. We show up.
-                We finish on time. And when we're done, we stand behind the
-                work.
+                own crews handle framing, cabinets, tile, and trim. We keep the
+                schedule you agree to, and we back the work when it's done.
               </p>
             </Reveal>
           </div>
@@ -895,7 +894,7 @@ function AreasServed() {
               Based in Spencerport, serving Rochester.
             </h3>
             <p className="text-white/55 text-[14.5px] leading-[1.7] mt-5 max-w-sm">
-              Working across Monroe County and the greater Rochester area — kitchens through full renovations.
+              Working across Monroe County and the greater Rochester area, on projects of every scale.
             </p>
           </Reveal>
         </div>
@@ -963,11 +962,11 @@ function Contact() {
           'Project Location': fd.get('location') || 'Not specified',
           Timeline: fd.get('timeline') || 'Not specified',
           'Project Details': fd.get('message'),
-          _subject: `New estimate request — ${fd.get('name')} (${fd.get('project_type') || 'general'})`,
+          _subject: `New estimate request from ${fd.get('name')} (${fd.get('project_type') || 'general'})`,
           _template: 'table',
           _captcha: 'false',
           _replyto: fd.get('email'),
-          _autoresponse: `Hi ${fd.get('name')?.toString().split(' ')[0] || 'there'},\n\nThanks for reaching out to R.J. Griffin Construction. We received your request and Ron or Josh will be in touch within one business day to talk through the details and schedule your free on-site estimate.\n\nIf you need us sooner, please call:\nRon Griffin — (585) 737-7521\nJosh Griffin — (585) 474-8657\n\nThanks again,\nThe Griffin Family\nR.J. Griffin Construction\n1753 Manitou Road, Spencerport, NY 14559`,
+          _autoresponse: `Hi ${fd.get('name')?.toString().split(' ')[0] || 'there'},\n\nWe got your estimate request. Ron or Josh will call you within one business day to schedule a free on-site visit.\n\nIf you need us sooner:\nRon Griffin: (585) 737-7521\nJosh Griffin: (585) 474-8657\n\nThanks,\nR.J. Griffin Construction\n1753 Manitou Road, Spencerport, NY 14559`,
         }),
       });
       if (res.ok) { setStatus('success'); ev.target.reset(); }
@@ -987,7 +986,7 @@ function Contact() {
           </Reveal>
           <Reveal delay={0.05}>
             <p className="prose-lede text-white/62 mt-6">
-              Send us the details or just call. Free on-site estimates anywhere in the Rochester area — no hard sell, just a real conversation.
+              Send us the details or just call. We offer free on-site estimates anywhere in the Rochester area.
             </p>
           </Reveal>
 
@@ -1060,7 +1059,7 @@ function Contact() {
                     aria-live="polite"
                     className="border-l-2 border-[#C9A96A] bg-[#C9A96A]/[0.05] p-5"
                   >
-                    <div className="font-display font-semibold text-white text-[16px] tracking-[-0.01em]">Thank you — we received your request.</div>
+                    <div className="font-display font-semibold text-white text-[16px] tracking-[-0.01em]">Thank you. We received your request.</div>
                     <p className="text-white/65 text-[14px] leading-relaxed mt-2">
                       Ron or Josh will be in touch within one business day. If you need us today, Ron is at <a href="tel:585-737-7521" className="text-[#C9A96A] hover:text-white transition-colors tabular font-medium">(585) 737-7521</a>.
                     </p>
@@ -1163,7 +1162,7 @@ function Footer() {
           <div className="lg:col-span-6 lg:pl-10 lg:border-l border-white/[0.05]">
             <span className="kicker">Ready to build?</span>
             <div className="font-display font-semibold text-[20px] sm:text-[24px] md:text-[28px] text-white leading-[1.2] tracking-[-0.02em] mt-4 max-w-md">
-              Request an on-site estimate — no obligation.
+              Request an on-site estimate. No obligation.
             </div>
             <div className="mt-7 flex flex-wrap gap-4">
               <a href="#contact" className="btn btn-primary">

@@ -50,7 +50,7 @@ section[id] { scroll-margin-top: 104px; }
   font-feature-settings: 'ss01', 'ss03';
 }
 
-/* Kicker — quiet meta label. NOT screaming. */
+/* Kicker: quiet meta label */
 .kicker {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
@@ -63,7 +63,7 @@ section[id] { scroll-margin-top: 104px; }
 .text-brass { color: #C9A96A; }
 .text-brass-2 { color: #E5C688; }
 
-/* Body copy — 15-16px, tight leading, capped measure like a print column */
+/* Body copy: 15-16px, tight leading, capped measure like a print column */
 .prose-lede {
   color: rgba(245,243,238,0.75);
   font-size: 15.5px;
@@ -77,7 +77,7 @@ section[id] { scroll-margin-top: 104px; }
 
 .tabular { font-variant-numeric: tabular-nums; }
 
-/* ---------- Buttons — restrained ---------- */
+/* ---------- Buttons: restrained ---------- */
 
 .btn {
   display: inline-flex;
