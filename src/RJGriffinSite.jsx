@@ -294,7 +294,7 @@ function Header() {
             transition={{ duration: 0.35, ease: [0.22, 0.61, 0.36, 1] }}
             className="lg:hidden overflow-hidden bg-[#0A0A0A]/95 backdrop-blur-xl border-t border-white/[0.05]"
           >
-            <nav className="flex flex-col p-6 gap-1 max-w-[1440px] mx-auto">
+            <nav className="flex flex-col px-5 sm:px-8 py-6 gap-1 max-w-[1440px] mx-auto">
               {links.map(l => (
                 <a
                   key={l.href}
@@ -403,7 +403,7 @@ function Hero() {
 
       {/* Content grid */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 min-h-[100svh]">
-        <div className="lg:col-span-5 relative flex flex-col justify-between px-6 sm:px-10 lg:px-14 xl:px-20 pt-32 lg:pt-40 pb-20 lg:pb-14">
+        <div className="lg:col-span-5 relative flex flex-col justify-between px-5 sm:px-8 lg:px-14 xl:px-20 pt-32 lg:pt-40 pb-20 lg:pb-14">
           <div className="max-w-[560px]">
             <Reveal delay={0.05}>
               <div className="flex items-center gap-3">
