@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 /* ============================================================================
    R.J. GRIFFIN CONSTRUCTION
@@ -82,6 +82,14 @@ const GALLERY = Array.from({ length: 16 }, (_, i) => ({
 const AREAS = ['Spencerport', 'Rochester', 'Brockport', 'Hilton', 'Greece', 'Chili', 'Gates', 'Pittsford', 'Fairport', 'Webster', 'Penfield', 'Henrietta', 'Irondequoit', 'Brighton', 'Monroe County'];
 
 const CAPABILITIES = ['Kitchens', 'Baths', 'Additions', 'Basement egress', 'Siding', 'Windows', 'Tile', 'Trim', 'Decks', 'Full renovations'];
+
+const HERO_PROJECTS = [
+  { src: '/images/site/hero.jpg', caption: 'Custom kitchen · Rochester' },
+  { src: '/images/gallery/project-04.jpg', caption: 'Bath remodel · Fairport' },
+  { src: '/images/gallery/project-08.jpg', caption: 'Home addition · Pittsford' },
+  { src: '/images/gallery/project-11.jpg', caption: 'Full renovation · Rochester' },
+  { src: '/images/gallery/project-14.jpg', caption: 'Sunroom refinish · Rochester' },
+];
 
 /* ============================================================================
    ICONS
@@ -230,15 +238,18 @@ function Header() {
           : 'bg-gradient-to-b from-black/55 via-black/10 to-transparent'
       }`}
     >
-      <div className={`max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-3 md:py-4' : 'py-4 md:py-5'}`}>
-        <a href="#top" className="flex items-center gap-3 md:gap-4 group" aria-label="R.J. Griffin Construction, home">
-          <div className={`relative transition-all duration-500 flex items-center justify-center shrink-0 ${scrolled ? 'h-10 w-10 md:h-12 md:w-12' : 'h-11 w-11 md:h-14 md:w-14'}`}>
-            <img src="/logo/rjg-shield.png" alt="" className="w-full h-full object-contain" />
-          </div>
+      <div className={`max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-2.5 md:py-3' : 'py-3.5 md:py-4'}`}>
+        <a href="#top" className="flex items-center gap-2.5 md:gap-3 group leading-none" aria-label="R.J. Griffin Construction, home">
+          <img
+            src="/logo/rjg-shield.png"
+            alt=""
+            aria-hidden="true"
+            className={`shrink-0 w-auto object-contain transition-all duration-500 block ${scrolled ? 'h-7 md:h-9' : 'h-8 md:h-11'}`}
+          />
           <img
             src="/logo/rjg-wordmark.png"
             alt="R.J. Griffin Construction"
-            className={`hidden sm:block w-auto transition-all duration-500 ${scrolled ? 'h-6 md:h-7' : 'h-7 md:h-9'}`}
+            className={`hidden sm:block w-auto object-contain transition-all duration-500 ${scrolled ? 'h-4 md:h-5' : 'h-5 md:h-6'}`}
           />
         </a>
 
@@ -321,39 +332,79 @@ function Header() {
    ========================================================================== */
 
 function Hero() {
-  const heroRef = useRef(null);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start'],
-  });
-  const logoY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, -60]);
-  const logoScale = useTransform(scrollYProgress, [0, 1], reduce ? [1, 1] : [1, 0.94]);
-  const logoOpacity = useTransform(scrollYProgress, [0, 0.6, 1], reduce ? [0.2, 0.2, 0.2] : [0.22, 0.18, 0.05]);
+  const [imgIdx, setImgIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const current = HERO_PROJECTS[imgIdx];
+
+  useEffect(() => {
+    if (reduce || paused) return;
+    const id = setInterval(() => {
+      setImgIdx((i) => (i + 1) % HERO_PROJECTS.length);
+    }, 5500);
+    return () => clearInterval(id);
+  }, [reduce, paused, imgIdx]);
+
+  // Preload next image
+  useEffect(() => {
+    const next = HERO_PROJECTS[(imgIdx + 1) % HERO_PROJECTS.length];
+    const img = new Image();
+    img.src = next.src;
+  }, [imgIdx]);
 
   return (
-    <section id="top" ref={heroRef} className="relative min-h-[100svh] overflow-hidden bg-[#0A0A0A]">
+    <section id="top" className="relative min-h-[100svh] overflow-hidden bg-[#0A0A0A]">
       {/* Image layer: full-bleed on mobile with overlay, right-panel only on desktop */}
-      <div className="absolute inset-0 lg:left-[41.666667%]">
-        <img
-          src="/images/site/hero.jpg"
-          alt="R.J. Griffin Construction, recent kitchen remodel in Rochester NY"
-          loading="eager"
-          fetchpriority="high"
-          className="w-full h-full object-cover object-[center_35%]"
-        />
-        {/* Mobile-only overlays — invisible above lg where image lives beside content */}
-        <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0A0A0A]" />
-        <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-black/15" />
+      <div
+        className="absolute inset-0 lg:left-[41.666667%] bg-[#0A0A0A]"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <AnimatePresence mode="sync">
+          <motion.img
+            key={imgIdx}
+            src={current.src}
+            alt={current.caption}
+            loading="eager"
+            fetchpriority="high"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduce ? 0 : 1.4, ease: 'easeInOut' }}
+            className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
+          />
+        </AnimatePresence>
 
-        {/* Logo overlay: desktop only, sits centered on the right image */}
-        <motion.img
-          src="/logo/rjg-logo-full.png"
-          alt=""
-          aria-hidden="true"
-          style={{ y: logoY, scale: logoScale, opacity: logoOpacity, transformOrigin: 'center' }}
-          className="hidden lg:block absolute top-1/2 right-8 xl:right-16 -translate-y-1/2 h-[78%] max-h-[720px] w-auto pointer-events-none select-none mix-blend-screen will-change-transform"
-        />
+        {/* Mobile-only overlays — invisible above lg where image lives beside content */}
+        <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0A0A0A] pointer-events-none" />
+        <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-black/15 pointer-events-none" />
+
+        {/* Corner caption + slide indicators (desktop) */}
+        <div className="hidden lg:flex absolute bottom-6 right-6 xl:bottom-8 xl:right-8 items-center gap-4 z-20 pointer-events-none">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={imgIdx}
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ duration: 0.4 }}
+              className="bg-black/60 backdrop-blur-sm px-3 py-1.5 text-[11px] tracking-[0.14em] uppercase text-white/90 font-medium"
+            >
+              {current.caption}
+            </motion.div>
+          </AnimatePresence>
+          <div className="flex gap-1.5 pointer-events-auto">
+            {HERO_PROJECTS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setImgIdx(i)}
+                aria-label={`Show project ${i + 1}`}
+                aria-current={i === imgIdx}
+                className={`h-1 transition-all duration-500 ${i === imgIdx ? 'w-8 bg-[#C9A96A]' : 'w-3 bg-white/40 hover:bg-white/70'}`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Content grid */}
@@ -375,9 +426,9 @@ function Hero() {
 
             <Reveal delay={0.2}>
               <p className="prose-lede text-white/85 lg:text-white/68 mt-6">
-                A family-run general contractor in Spencerport, NY. Kitchens,
-                baths, additions, and basement egress across the Rochester area
-                for forty years. Our own crews on every project.
+                A family-run general contractor in Spencerport, NY.
+                Kitchens, baths, additions, and basement egress across the
+                greater Rochester area.
               </p>
             </Reveal>
 
@@ -394,13 +445,11 @@ function Hero() {
           {/* Bottom whisper: single hairline credentials row */}
           <Reveal delay={0.28}>
             <div className="mt-16 pt-6 border-t border-white/[0.12] lg:border-white/[0.05] flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-medium text-white/60 lg:text-white/45">
-              <span className="text-[#C9A96A] tabular"><Counter end={40} suffix="+ years" /></span>
-              <span className="w-1 h-1 rounded-full bg-white/25" />
               <span>A+ BBB accredited</span>
               <span className="w-1 h-1 rounded-full bg-white/25" />
-              <span>Family owned</span>
+              <span>Licensed &amp; insured</span>
               <span className="w-1 h-1 rounded-full bg-white/25" />
-              <span>Own crews</span>
+              <span>Own crews on every job</span>
             </div>
           </Reveal>
         </div>
@@ -791,8 +840,8 @@ function About() {
                 <img src="/images/gallery/project-11.jpg" alt="R.J. Griffin project in Rochester NY" loading="lazy" className="w-full h-full object-cover" />
               </div>
               <figcaption className="mt-4 flex items-center justify-between text-[11px] tracking-[0.12em] uppercase text-white/45 font-medium">
-                <span>Recent work</span>
-                <span><Counter end={40} suffix="+" /> years in Rochester</span>
+                <span>Recent project</span>
+                <span>Rochester, NY</span>
               </figcaption>
             </figure>
           </Reveal>
@@ -808,17 +857,17 @@ function About() {
           <div className="mt-8 space-y-5 max-w-xl">
             <Reveal delay={0.05}>
               <p className="prose-lede text-white/72">
-                Ron Griffin started R.J. Griffin Construction in 1986. Forty
-                years later, the company is still here, still family-run, and
-                still doing the work itself. Ron's son Josh handles day-to-day
-                operations.
+                Ron Griffin started the company in 1986. Today his son Josh
+                runs the day-to-day, the trucks still say Griffin, and the
+                crews on your jobsite still work for us, not for a sub we
+                hired last week.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="prose-lede text-white/58">
-                We don't hand your project off to a rotating cast of subs. Our
-                own crews handle framing, cabinets, tile, and trim. We keep the
-                schedule you agree to, and we back the work when it's done.
+                We handle framing, cabinets, tile, and trim in-house. We keep
+                the schedule you agreed to, and we stay reachable long after
+                the last coat of paint.
               </p>
             </Reveal>
           </div>
@@ -1199,9 +1248,8 @@ function Footer() {
               Est. 1986 · Spencerport, NY
             </div>
             <p className="prose-lede text-white/55 mt-7 max-w-lg">
-              Family-owned general contractor based in Spencerport, NY.
-              Kitchens, baths, additions, basement egress, and full home
-              renovations across the Rochester area for forty years.
+              Serving the greater Rochester area. Kitchens, baths, additions,
+              basement egress, and full home renovations.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4 text-[11px] text-white/40 font-medium">
               <span className="inline-flex items-center gap-2"><Icon name="shield" className="w-3.5 h-3.5 text-[#C9A96A]" /> A+ BBB</span>
