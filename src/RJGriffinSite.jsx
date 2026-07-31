@@ -231,14 +231,15 @@ function Header() {
       }`}
     >
       <div className={`max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-3 md:py-4' : 'py-4 md:py-5'}`}>
-        <a href="#top" className="flex items-center gap-3.5 md:gap-4 group" aria-label="R.J. Griffin Construction, home">
-          <div className={`relative transition-all duration-500 flex items-center justify-center ${scrolled ? 'h-14 w-14 md:h-16 md:w-16' : 'h-16 w-16 md:h-20 md:w-20'}`}>
+        <a href="#top" className="flex items-center gap-3 md:gap-4 group" aria-label="R.J. Griffin Construction, home">
+          <div className={`relative transition-all duration-500 flex items-center justify-center shrink-0 ${scrolled ? 'h-10 w-10 md:h-12 md:w-12' : 'h-11 w-11 md:h-14 md:w-14'}`}>
             <img src="/logo/rjg-shield.png" alt="" className="w-full h-full object-contain" />
           </div>
-          <div className="hidden sm:block leading-tight">
-            <div className="font-display font-semibold text-white text-[17px] md:text-[19px] tracking-[-0.01em]">R.J. Griffin</div>
-            <div className="text-[10px] tracking-[0.18em] text-[#C9A96A]/85 mt-1.5 font-semibold uppercase">Construction · Est. 1986</div>
-          </div>
+          <img
+            src="/logo/rjg-wordmark.png"
+            alt="R.J. Griffin Construction"
+            className={`hidden sm:block w-auto transition-all duration-500 ${scrolled ? 'h-6 md:h-7' : 'h-7 md:h-9'}`}
+          />
         </a>
 
         <nav className="hidden lg:flex items-center gap-9">
@@ -326,9 +327,9 @@ function Hero() {
     target: heroRef,
     offset: ['start start', 'end start'],
   });
-  const logoY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, -80]);
-  const logoScale = useTransform(scrollYProgress, [0, 1], reduce ? [1, 1] : [1, 0.9]);
-  const logoOpacity = useTransform(scrollYProgress, [0, 0.55, 1], reduce ? [1, 1, 1] : [1, 0.85, 0.3]);
+  const logoY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, -60]);
+  const logoScale = useTransform(scrollYProgress, [0, 1], reduce ? [1, 1] : [1, 0.94]);
+  const logoOpacity = useTransform(scrollYProgress, [0, 0.6, 1], reduce ? [0.2, 0.2, 0.2] : [0.22, 0.18, 0.05]);
 
   return (
     <section id="top" ref={heroRef} className="relative min-h-[100svh] overflow-hidden bg-[#0A0A0A]">
@@ -344,24 +345,23 @@ function Hero() {
         {/* Mobile-only overlays — invisible above lg where image lives beside content */}
         <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0A0A0A]" />
         <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-black/15" />
+
+        {/* Logo overlay: desktop only, sits centered on the right image */}
+        <motion.img
+          src="/logo/rjg-logo-full.png"
+          alt=""
+          aria-hidden="true"
+          style={{ y: logoY, scale: logoScale, opacity: logoOpacity, transformOrigin: 'center' }}
+          className="hidden lg:block absolute top-1/2 right-8 xl:right-16 -translate-y-1/2 h-[78%] max-h-[720px] w-auto pointer-events-none select-none mix-blend-screen will-change-transform"
+        />
       </div>
 
       {/* Content grid */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 min-h-[100svh]">
         <div className="lg:col-span-5 relative flex flex-col justify-between px-6 sm:px-10 lg:px-14 xl:px-20 pt-32 lg:pt-40 pb-20 lg:pb-14">
           <div className="max-w-[560px]">
-            <motion.img
-              src="/logo/rjg-logo-full.png"
-              alt="R.J. Griffin Construction"
-              initial={reduce ? false : { opacity: 0, y: -8 }}
-              animate={reduce ? undefined : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: [0.22, 0.61, 0.36, 1] }}
-              style={{ y: logoY, scale: logoScale, opacity: logoOpacity, transformOrigin: 'left center' }}
-              className="h-28 sm:h-32 lg:h-36 xl:h-40 w-auto -ml-2 drop-shadow-[0_4px_16px_rgba(0,0,0,0.35)] lg:drop-shadow-none will-change-transform"
-            />
-
-            <Reveal delay={0.08}>
-              <div className="flex items-center gap-3 mt-8">
+            <Reveal delay={0.05}>
+              <div className="flex items-center gap-3">
                 <span className="w-8 h-px bg-[#C9A96A]" />
                 <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#C9A96A]/90">Since 1986 · Rochester, NY</span>
               </div>
