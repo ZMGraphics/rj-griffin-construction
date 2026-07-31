@@ -230,14 +230,14 @@ function Header() {
           : 'bg-gradient-to-b from-black/55 via-black/10 to-transparent'
       }`}
     >
-      <div className={`max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-3.5 md:py-4' : 'py-5 md:py-7'}`}>
-        <a href="#top" className="flex items-center gap-3.5 group" aria-label="R.J. Griffin Construction, home">
-          <div className={`relative overflow-hidden transition-all duration-500 ${scrolled ? 'h-10 w-10 md:h-12 md:w-12' : 'h-11 w-11 md:h-14 md:w-14'}`}>
+      <div className={`max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-3 md:py-4' : 'py-4 md:py-5'}`}>
+        <a href="#top" className="flex items-center gap-3.5 md:gap-4 group" aria-label="R.J. Griffin Construction, home">
+          <div className={`relative overflow-hidden transition-all duration-500 ${scrolled ? 'h-14 w-14 md:h-16 md:w-16' : 'h-16 w-16 md:h-20 md:w-20'}`}>
             <img src="/logo/logo.jpg" alt="" className="w-full h-full object-cover" />
           </div>
           <div className="hidden sm:block leading-tight">
-            <div className="font-display font-semibold text-white text-[15px] md:text-[16px] tracking-[-0.01em]">R.J. Griffin</div>
-            <div className="text-[10px] tracking-[0.14em] text-white/45 mt-1 font-medium">Construction · Est. 1986</div>
+            <div className="font-display font-semibold text-white text-[17px] md:text-[19px] tracking-[-0.01em]">R.J. Griffin</div>
+            <div className="text-[10px] tracking-[0.18em] text-[#C9A96A]/85 mt-1.5 font-semibold uppercase">Construction · Est. 1986</div>
           </div>
         </a>
 
@@ -339,29 +339,37 @@ function Hero() {
       {/* Content grid */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 min-h-[100svh]">
         <div className="lg:col-span-5 relative flex flex-col justify-between px-6 sm:px-10 lg:px-14 xl:px-20 pt-32 lg:pt-40 pb-20 lg:pb-14">
-          <div className="max-w-[520px]">
+          <div className="max-w-[560px]">
             <Reveal>
-              <div className="flex items-center gap-3">
-                <span className="w-8 h-px bg-[#C9A96A]" />
-                <span className="text-[11px] font-medium tracking-[0.14em] text-white/70 lg:text-white/55">R.J. Griffin Construction, LLC</span>
-              </div>
+              <img
+                src="/logo/rjg-logo-full.png"
+                alt="R.J. Griffin Construction"
+                className="h-28 sm:h-32 lg:h-36 xl:h-40 w-auto -ml-2 drop-shadow-[0_4px_16px_rgba(0,0,0,0.35)] lg:drop-shadow-none"
+              />
             </Reveal>
 
             <Reveal delay={0.08}>
-              <h1 className="font-display font-bold text-[36px] sm:text-[44px] lg:text-[48px] xl:text-[56px] leading-[1.08] tracking-[-0.025em] text-[#F5F3EE] mt-8 [text-shadow:0_2px_20px_rgba(0,0,0,0.4)] lg:[text-shadow:none]">
+              <div className="flex items-center gap-3 mt-8">
+                <span className="w-8 h-px bg-[#C9A96A]" />
+                <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#C9A96A]/90">Since 1986 · Rochester, NY</span>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.14}>
+              <h1 className="font-display font-bold text-[34px] sm:text-[42px] lg:text-[46px] xl:text-[54px] leading-[1.08] tracking-[-0.025em] text-[#F5F3EE] mt-6 [text-shadow:0_2px_20px_rgba(0,0,0,0.4)] lg:[text-shadow:none]">
                 Building homes<br />that outlast us.
               </h1>
             </Reveal>
 
-            <Reveal delay={0.15}>
-              <p className="prose-lede text-white/85 lg:text-white/68 mt-7">
+            <Reveal delay={0.2}>
+              <p className="prose-lede text-white/85 lg:text-white/68 mt-6">
                 A family-run general contractor in Spencerport, NY. Kitchens,
                 baths, additions, and basement egress across the Rochester area
                 for forty years. Our own crews on every project.
               </p>
             </Reveal>
 
-            <Reveal delay={0.2}>
+            <Reveal delay={0.26}>
               <div className="mt-10">
                 <a href="#contact" className="btn btn-secondary">
                   Request an estimate
@@ -830,8 +838,15 @@ function Reviews() {
   const [idx, setIdx] = useState(0);
   const r = REVIEWS[idx];
   return (
-    <section id="reviews" className="relative bg-surface-1 py-28 sm:py-40 lg:py-52 border-t border-white/[0.05]">
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-14">
+    <section id="reviews" className="relative bg-surface-1 py-28 sm:py-40 lg:py-52 border-t border-white/[0.05] overflow-hidden">
+      {/* Shield watermark */}
+      <img
+        src="/logo/rjg-logo-full.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(80vw,700px)] max-w-none opacity-[0.035] pointer-events-none select-none"
+      />
+      <div className="relative max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-14">
         <Reveal>
           <SectionHeader
             kicker="Client voices"
@@ -1143,14 +1158,13 @@ function Footer() {
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 pb-16 md:pb-24 border-b border-white/[0.05]">
           <div className="lg:col-span-6">
-            <div className="flex items-center gap-4">
-              <div className="h-14 w-14 md:h-16 md:w-16 overflow-hidden ring-1 ring-[#C9A96A]/20 shrink-0">
-                <img src="/logo/logo.jpg" alt="R.J. Griffin Construction" className="w-full h-full object-cover" />
-              </div>
-              <div>
-                <div className="font-display font-semibold text-white text-[16px] md:text-[17px] tracking-[-0.01em]">R.J. Griffin</div>
-                <div className="text-[10px] md:text-[11px] tracking-[0.14em] text-white/50 mt-1.5 font-medium">Construction · Est. 1986</div>
-              </div>
+            <img
+              src="/logo/rjg-logo-full.png"
+              alt="R.J. Griffin Construction"
+              className="h-32 md:h-40 lg:h-44 w-auto -ml-2"
+            />
+            <div className="mt-2 text-[10px] tracking-[0.24em] uppercase text-[#C9A96A]/85 font-semibold">
+              Est. 1986 · Spencerport, NY
             </div>
             <p className="prose-lede text-white/55 mt-7 max-w-lg">
               Family-owned general contractor based in Spencerport, NY.
