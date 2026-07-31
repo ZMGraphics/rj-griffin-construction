@@ -138,18 +138,21 @@ const Eyebrow = ({ label, align = 'left' }) => (
 );
 
 /* Section header. Sentence case, restrained scale, weight-driven. */
-const SectionHeader = ({ kicker, title, lede, align = 'left', maxTitleWidth = '20ch' }) => (
-  <div className={`${align === 'center' ? 'mx-auto text-center' : ''} max-w-3xl`}>
-    <Eyebrow label={kicker} align={align} />
-    <h2
-      className="font-display font-semibold text-[24px] sm:text-[28px] md:text-[32px] lg:text-[34px] leading-[1.22] tracking-[-0.02em] text-[#F5F3EE] mt-5"
-      style={{ maxWidth: maxTitleWidth }}
-    >
-      {title}
-    </h2>
-    {lede && <p className="prose-lede text-white/60 mt-5">{lede}</p>}
-  </div>
-);
+const SectionHeader = ({ kicker, title, lede, align = 'left', maxTitleWidth = '20ch' }) => {
+  const centered = align === 'center';
+  return (
+    <div className={`${centered ? 'mx-auto text-center' : ''} max-w-3xl`}>
+      <Eyebrow label={kicker} align={align} />
+      <h2
+        className={`font-display font-semibold text-[24px] sm:text-[28px] md:text-[32px] lg:text-[34px] leading-[1.22] tracking-[-0.02em] text-[#F5F3EE] mt-5 ${centered ? 'mx-auto' : ''}`}
+        style={{ maxWidth: maxTitleWidth }}
+      >
+        {title}
+      </h2>
+      {lede && <p className={`prose-lede text-white/60 mt-5 ${centered ? 'mx-auto' : ''}`}>{lede}</p>}
+    </div>
+  );
+};
 
 const Counter = ({ end, suffix = '', duration = 1400, className = '' }) => {
   const [value, setValue] = useState(0);
