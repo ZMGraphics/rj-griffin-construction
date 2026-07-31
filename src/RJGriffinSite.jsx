@@ -438,7 +438,7 @@ function Hero() {
 
           {/* Bottom whisper: single hairline credentials row */}
           <Reveal delay={0.28}>
-            <div className="mt-16 pt-6 border-t border-white/[0.12] lg:border-white/[0.05] flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-medium text-white/60 lg:text-white/45">
+            <div className="mt-16 pt-6 border-t border-white/[0.12] lg:border-white/[0.05] flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] font-medium text-white/60 lg:text-white/45 text-center lg:text-left">
               <span>A+ BBB accredited</span>
               <span className="w-1 h-1 rounded-full bg-white/25" />
               <span>Licensed &amp; insured</span>
@@ -461,11 +461,11 @@ function Capabilities() {
   return (
     <section aria-label="Capabilities" className="relative bg-[#0A0A0A] border-y border-white/[0.05]">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-10 md:py-12">
-        <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-12">
+        <div className="flex flex-col items-center lg:flex-row lg:items-center gap-5 lg:gap-12">
           <div className="shrink-0">
             <span className="kicker text-[#C9A96A]/85">Capabilities</span>
           </div>
-          <div className="flex-1 flex flex-wrap items-center gap-x-6 gap-y-3 lg:justify-end">
+          <div className="flex-1 w-full flex flex-wrap items-center justify-center lg:justify-end gap-x-5 lg:gap-x-6 gap-y-3">
             {CAPABILITIES.map((c, i) => (
               <React.Fragment key={c}>
                 <span className="text-white/78 text-[13px] md:text-[14px] font-medium">{c}</span>
@@ -1232,20 +1232,20 @@ function Footer() {
     <footer className="relative bg-[#070707] border-t border-white/[0.05] pt-24 md:pt-32 pb-10">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 pb-16 md:pb-24 border-b border-white/[0.05]">
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 flex flex-col items-center text-center lg:items-start lg:text-left">
             <img
               src="/logo/rjg-logo-full.png"
               alt="R.J. Griffin Construction"
-              className="h-32 md:h-40 lg:h-44 w-auto -ml-2"
+              className="h-32 md:h-40 lg:h-44 w-auto lg:-ml-2"
             />
             <div className="mt-2 text-[10px] tracking-[0.24em] uppercase text-[#C9A96A]/85 font-semibold">
               Est. 1986 · Spencerport, NY
             </div>
-            <p className="prose-lede text-white/55 mt-7 max-w-lg">
+            <p className="prose-lede text-white/55 mt-7 max-w-lg mx-auto lg:mx-0">
               Serving the greater Rochester area. Kitchens, baths, additions,
               basement egress, and full home renovations.
             </p>
-            <div className="mt-7 flex flex-wrap items-center gap-4 text-[11px] text-white/40 font-medium">
+            <div className="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[11px] text-white/40 font-medium">
               <span className="inline-flex items-center gap-2"><Icon name="shield" className="w-3.5 h-3.5 text-[#C9A96A]" /> A+ BBB</span>
               <span className="w-1 h-1 bg-white/20 rounded-full" />
               <span>Fully insured</span>
@@ -1253,12 +1253,12 @@ function Footer() {
               <span>Locally owned</span>
             </div>
           </div>
-          <div className="lg:col-span-6 lg:pl-10 lg:border-l border-white/[0.05]">
+          <div className="lg:col-span-6 lg:pl-10 lg:border-l border-white/[0.05] flex flex-col items-center text-center lg:items-start lg:text-left">
             <span className="kicker">Ready to build?</span>
             <div className="font-display font-semibold text-[20px] sm:text-[24px] md:text-[28px] text-white leading-[1.2] tracking-[-0.02em] mt-4 max-w-md">
               Request an on-site estimate. No obligation.
             </div>
-            <div className="mt-7 flex flex-wrap gap-4">
+            <div className="mt-7 flex flex-wrap justify-center lg:justify-start gap-4">
               <a href="#contact" className="btn btn-primary">
                 Start a project
                 <span className="arrow-slide"><Icon name="arrow" className="w-3 h-3" /></span>
