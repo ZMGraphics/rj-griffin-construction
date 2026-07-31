@@ -239,17 +239,11 @@ function Header() {
       }`}
     >
       <div className={`max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-2.5 md:py-3' : 'py-3.5 md:py-4'}`}>
-        <a href="#top" className="flex items-center gap-2 md:gap-2.5 group leading-none min-w-0" aria-label="R.J. Griffin Construction, home">
+        <a href="#top" className="flex items-center group leading-none min-w-0" aria-label="R.J. Griffin Construction, home">
           <img
-            src="/logo/rjg-shield.png"
-            alt=""
-            aria-hidden="true"
-            className={`shrink-0 w-auto object-contain transition-all duration-500 block ${scrolled ? 'h-6 md:h-8' : 'h-7 md:h-9'}`}
-          />
-          <img
-            src="/logo/rjg-wordmark.png"
+            src="/logo/rjg-nav.svg"
             alt="R.J. Griffin Construction"
-            className={`shrink w-auto object-contain transition-all duration-500 max-w-[52vw] sm:max-w-none ${scrolled ? 'h-3.5 md:h-4' : 'h-4 md:h-5'}`}
+            className={`w-auto object-contain transition-all duration-500 max-w-[70vw] sm:max-w-none ${scrolled ? 'h-8 md:h-10' : 'h-10 md:h-12'}`}
           />
         </a>
 
