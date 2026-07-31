@@ -463,7 +463,7 @@ function Services() {
         {featured && (
           <Reveal delay={0.1}>
             <article className="card mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-5 overflow-hidden">
-              <div className="md:col-span-3 p-10 sm:p-14 lg:p-20 relative">
+              <div className="md:col-span-3 p-8 sm:p-12 lg:p-20 relative">
                 <span className="inline-flex items-center gap-2 text-[11px] tracking-[0.12em] font-medium text-[#C9A96A]">
                   <span className="w-1 h-1 rounded-full bg-[#C9A96A]" />
                   {featured.subtitle}
@@ -499,7 +499,7 @@ function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.05] mt-px">
           {rest.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.06}>
-              <article className="bg-[#0A0A0A] p-10 sm:p-12 lg:p-16 h-full">
+              <article className="bg-[#0A0A0A] p-8 sm:p-12 lg:p-16 h-full">
                 <span className="text-[#C9A96A] block"><Icon name={s.icon} className="w-5 h-5" /></span>
                 <h3 className="font-display font-semibold text-[18px] md:text-[19px] lg:text-[21px] text-white leading-[1.25] tracking-[-0.015em] mt-6">{s.title}</h3>
                 <p className="text-white/62 text-[14.5px] leading-[1.68] mt-4 max-w-md">{s.desc}</p>
@@ -575,8 +575,7 @@ function BeforeAfter() {
             <div
               ref={containerRef}
               onMouseDown={startDrag}
-              onTouchStart={startDrag}
-              className="relative w-full max-w-[1200px] mx-auto aspect-[4/5] sm:aspect-[16/10] overflow-hidden select-none cursor-ew-resize border border-white/10"
+              className="relative w-full max-w-[1200px] mx-auto aspect-[4/5] sm:aspect-[16/10] overflow-hidden select-none cursor-ew-resize border border-white/10 touch-pan-y"
               role="slider"
               aria-label="Before and after comparison"
               aria-valuemin={0}
@@ -607,9 +606,9 @@ function BeforeAfter() {
                 <div className="w-0.5 h-full bg-[#F5F3EE]" />
                 <button
                   aria-label="Drag to reveal"
-                  className="pointer-events-auto absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#F5F3EE] text-[#0A0A0A] shadow-[0_10px_30px_-8px_rgba(0,0,0,0.9)] flex items-center justify-center hover:bg-[#C9A96A] transition-colors"
-                  onMouseDown={startDrag}
-                  onTouchStart={startDrag}
+                  className="pointer-events-auto absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#F5F3EE] text-[#0A0A0A] shadow-[0_10px_30px_-8px_rgba(0,0,0,0.9)] flex items-center justify-center hover:bg-[#C9A96A] transition-colors touch-none"
+                  onMouseDown={(e) => { e.preventDefault(); startDrag(e); }}
+                  onTouchStart={(e) => { e.preventDefault(); startDrag(e); }}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
                     <path d="M8 5l-4 7 4 7M16 5l4 7-4 7" />
@@ -836,7 +835,7 @@ function Reviews() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="mt-16 md:mt-24 py-10 sm:py-14 lg:py-16 relative">
+          <div className="mt-14 md:mt-20 py-6 sm:py-10 lg:py-14 relative">
             <AnimatePresence mode="wait">
               <motion.div
                 key={idx}
@@ -1021,7 +1020,7 @@ function Contact() {
               ref={formRef}
               onSubmit={onSubmit}
               noValidate
-              className="card p-8 sm:p-10 lg:p-14 space-y-10 relative"
+              className="card p-6 sm:p-10 lg:p-14 space-y-8 sm:space-y-10 relative"
             >
               <input type="text" name="_honey" tabIndex="-1" autoComplete="off" className="absolute -left-[9999px] opacity-0" aria-hidden="true" />
 
@@ -1285,7 +1284,7 @@ function MobileCTA() {
 
 export default function RJGriffinSite() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-[#F5F3EE] antialiased pb-16 lg:pb-0 overflow-x-hidden">
+    <div className="min-h-screen bg-[#0A0A0A] text-[#F5F3EE] antialiased pb-20 lg:pb-0 overflow-x-hidden">
       <a href="#top" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:text-[12px] focus:font-medium">Skip to content</a>
       <Header />
       <main>
