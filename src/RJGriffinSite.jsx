@@ -848,9 +848,29 @@ function About() {
 
 function Reviews() {
   const [idx, setIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const reduce = useReducedMotion();
   const r = REVIEWS[idx];
+
+  useEffect(() => {
+    if (reduce || paused) return;
+    const id = setInterval(() => {
+      setIdx((i) => (i + 1) % REVIEWS.length);
+    }, 7000);
+    return () => clearInterval(id);
+  }, [reduce, paused, idx]);
+
   return (
-    <section id="reviews" className="relative bg-surface-1 py-28 sm:py-40 lg:py-52 border-t border-white/[0.05] overflow-hidden">
+    <section
+      id="reviews"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
+      aria-roledescription="carousel"
+      aria-label="Client reviews"
+      className="relative bg-surface-1 py-28 sm:py-40 lg:py-52 border-t border-white/[0.05] overflow-hidden"
+    >
       {/* Shield watermark */}
       <img
         src="/logo/rjg-logo-full.png"
