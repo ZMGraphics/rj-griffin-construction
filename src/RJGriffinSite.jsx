@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 
 /* ============================================================================
    R.J. GRIFFIN CONSTRUCTION
@@ -232,8 +232,8 @@ function Header() {
     >
       <div className={`max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center justify-between transition-all duration-500 ${scrolled ? 'py-3 md:py-4' : 'py-4 md:py-5'}`}>
         <a href="#top" className="flex items-center gap-3.5 md:gap-4 group" aria-label="R.J. Griffin Construction, home">
-          <div className={`relative overflow-hidden transition-all duration-500 ${scrolled ? 'h-14 w-14 md:h-16 md:w-16' : 'h-16 w-16 md:h-20 md:w-20'}`}>
-            <img src="/logo/logo.jpg" alt="" className="w-full h-full object-cover" />
+          <div className={`relative transition-all duration-500 flex items-center justify-center ${scrolled ? 'h-14 w-14 md:h-16 md:w-16' : 'h-16 w-16 md:h-20 md:w-20'}`}>
+            <img src="/logo/rjg-shield.png" alt="" className="w-full h-full object-contain" />
           </div>
           <div className="hidden sm:block leading-tight">
             <div className="font-display font-semibold text-white text-[17px] md:text-[19px] tracking-[-0.01em]">R.J. Griffin</div>
@@ -320,8 +320,18 @@ function Header() {
    ========================================================================== */
 
 function Hero() {
+  const heroRef = useRef(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const logoY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, -80]);
+  const logoScale = useTransform(scrollYProgress, [0, 1], reduce ? [1, 1] : [1, 0.9]);
+  const logoOpacity = useTransform(scrollYProgress, [0, 0.55, 1], reduce ? [1, 1, 1] : [1, 0.85, 0.3]);
+
   return (
-    <section id="top" className="relative min-h-[100svh] overflow-hidden bg-[#0A0A0A]">
+    <section id="top" ref={heroRef} className="relative min-h-[100svh] overflow-hidden bg-[#0A0A0A]">
       {/* Image layer: full-bleed on mobile with overlay, right-panel only on desktop */}
       <div className="absolute inset-0 lg:left-[41.666667%]">
         <img
@@ -340,13 +350,15 @@ function Hero() {
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 min-h-[100svh]">
         <div className="lg:col-span-5 relative flex flex-col justify-between px-6 sm:px-10 lg:px-14 xl:px-20 pt-32 lg:pt-40 pb-20 lg:pb-14">
           <div className="max-w-[560px]">
-            <Reveal>
-              <img
-                src="/logo/rjg-logo-full.png"
-                alt="R.J. Griffin Construction"
-                className="h-28 sm:h-32 lg:h-36 xl:h-40 w-auto -ml-2 drop-shadow-[0_4px_16px_rgba(0,0,0,0.35)] lg:drop-shadow-none"
-              />
-            </Reveal>
+            <motion.img
+              src="/logo/rjg-logo-full.png"
+              alt="R.J. Griffin Construction"
+              initial={reduce ? false : { opacity: 0, y: -8 }}
+              animate={reduce ? undefined : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: [0.22, 0.61, 0.36, 1] }}
+              style={{ y: logoY, scale: logoScale, opacity: logoOpacity, transformOrigin: 'left center' }}
+              className="h-28 sm:h-32 lg:h-36 xl:h-40 w-auto -ml-2 drop-shadow-[0_4px_16px_rgba(0,0,0,0.35)] lg:drop-shadow-none will-change-transform"
+            />
 
             <Reveal delay={0.08}>
               <div className="flex items-center gap-3 mt-8">
