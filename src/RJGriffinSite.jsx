@@ -141,7 +141,7 @@ const Reveal = ({ children, delay = 0, y = 10, className = '' }) => {
 const Eyebrow = ({ label, align = 'left' }) => (
   <div className={`flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}>
     <span className="w-6 h-px bg-[#C9A96A]" />
-    <span className="text-[11px] font-medium tracking-[0.12em] uppercase text-white/50">{label}</span>
+    <span className="text-[11px] font-medium tracking-[0.12em] uppercase text-white/70">{label}</span>
   </div>
 );
 
@@ -439,11 +439,11 @@ function Hero() {
           {/* Bottom whisper: single hairline credentials row */}
           <Reveal delay={0.28}>
             <div className="mt-16 pt-6 border-t border-white/[0.12] lg:border-white/[0.05] flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] font-medium text-white/60 lg:text-white/45 text-center lg:text-left">
-              <span>A+ BBB accredited</span>
+              <span>Better Business Bureau Accredited</span>
               <span className="w-1 h-1 rounded-full bg-white/25" />
               <span>Licensed &amp; insured</span>
               <span className="w-1 h-1 rounded-full bg-white/25" />
-              <span>Own crews on every job</span>
+              <span>Our own crews on core work</span>
             </div>
           </Reveal>
         </div>
@@ -485,7 +485,7 @@ function Capabilities() {
 
 function TrustBadges() {
   const badges = [
-    { title: 'A+ Rated', sub: 'BBB accredited', icon: 'shield' },
+    { title: 'BBB Accredited', sub: 'Better Business Bureau', icon: 'shield' },
     { title: '40+ Years', sub: 'Serving Rochester', icon: 'clock' },
     { title: 'Locally owned', sub: 'Spencerport, NY', icon: 'pin' },
     { title: 'Fully insured', sub: 'Licensed contractor', icon: 'check' },
@@ -525,7 +525,7 @@ function Services() {
           <SectionHeader
             kicker="Services"
             title="What we build."
-            lede="Own crews, no rotating subs. When we quote a project, that's who's showing up to build it."
+            lede="Our own crews handle the core work; when we bring in specialized trade partners, we manage them directly."
             maxTitleWidth="18ch"
           />
         </Reveal>
@@ -852,9 +852,9 @@ function About() {
             <Reveal delay={0.05}>
               <p className="prose-lede text-white/72">
                 Ron Griffin started the company in 1986. Today his son Josh
-                runs the day-to-day, the trucks still say Griffin, and the
-                crews on your jobsite still work for us, not for a sub we
-                hired last week.
+                runs the day-to-day, the trucks still say Griffin, and our own
+                crews handle the core work. When we bring in specialized trade
+                partners, we manage them directly.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
@@ -1145,6 +1145,10 @@ function Contact() {
                 </button>
               </div>
 
+              <p className="text-[12px] leading-relaxed text-white/70 font-medium">
+                By submitting this form you agree to our <a href="/privacy" className="text-[#C9A96A] hover:text-white underline transition-colors">Privacy Policy</a> and consent to being contacted about your project. We never sell your information.
+              </p>
+
               <AnimatePresence>
                 {status === 'success' && (
                   <motion.div
@@ -1193,9 +1197,10 @@ function Field({ label, name, type = 'text', required, error, placeholder, autoC
         placeholder={placeholder}
         autoComplete={autoComplete}
         aria-invalid={!!error}
+        aria-describedby={error ? `${name}-error` : undefined}
         className={`field-input ${error ? 'border-red-500' : ''}`}
       />
-      {error && <span className="mt-1.5 block text-[12px] text-red-300">{error}</span>}
+      {error && <span id={`${name}-error`} className="mt-1.5 block text-[12px] text-red-300">{error}</span>}
     </label>
   );
 }
@@ -1216,8 +1221,8 @@ function TextArea({ label, name, required, error, placeholder, className = '' })
   return (
     <label className={`block ${className}`}>
       <span className="field-label">{label}{required && <span className="text-[#C9A96A] ml-1">*</span>}</span>
-      <textarea name={name} rows={5} placeholder={placeholder} aria-invalid={!!error} className={`field-textarea ${error ? 'border-red-500' : ''}`} />
-      {error && <span className="mt-1.5 block text-[12px] text-red-300">{error}</span>}
+      <textarea name={name} rows={5} placeholder={placeholder} aria-invalid={!!error} aria-describedby={error ? `${name}-error` : undefined} className={`field-textarea ${error ? 'border-red-500' : ''}`} />
+      {error && <span id={`${name}-error`} className="mt-1.5 block text-[12px] text-red-300">{error}</span>}
     </label>
   );
 }
@@ -1246,7 +1251,7 @@ function Footer() {
               basement egress, and full home renovations.
             </p>
             <div className="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[11px] text-white/40 font-medium">
-              <span className="inline-flex items-center gap-2"><Icon name="shield" className="w-3.5 h-3.5 text-[#C9A96A]" /> A+ BBB</span>
+              <span className="inline-flex items-center gap-2"><Icon name="shield" className="w-3.5 h-3.5 text-[#C9A96A]" /> BBB Accredited</span>
               <span className="w-1 h-1 bg-white/20 rounded-full" />
               <span>Fully insured</span>
               <span className="w-1 h-1 bg-white/20 rounded-full" />
@@ -1306,10 +1311,10 @@ function Footer() {
 
           <FooterCol title="Safety">
             <ul className="space-y-2.5 text-white/58 text-[13px] leading-[1.65]">
-              <li className="flex gap-2"><span className="text-[#C9A96A]">›</span>OSHA-compliant crews</li>
-              <li className="flex gap-2"><span className="text-[#C9A96A]">›</span>Fully insured &amp; bonded</li>
+              <li className="flex gap-2"><span className="text-[#C9A96A]">›</span>We follow OSHA-aligned jobsite safety practices</li>
+              <li className="flex gap-2"><span className="text-[#C9A96A]">›</span>Fully insured</li>
               <li className="flex gap-2"><span className="text-[#C9A96A]">›</span>Clean-site policy</li>
-              <li className="flex gap-2"><span className="text-[#C9A96A]">›</span>Written scope &amp; warranty</li>
+              <li className="flex gap-2"><span className="text-[#C9A96A]">›</span>We stand behind our workmanship</li>
             </ul>
           </FooterCol>
 
@@ -1324,14 +1329,14 @@ function Footer() {
         </div>
 
         <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-white/40 text-[12px] font-medium">
+          <div className="text-white/70 text-[12px] font-medium">
             © {year} R.J. Griffin Construction. All rights reserved.
           </div>
-          <div className="flex items-center gap-6 text-[12px] text-white/40 font-medium">
-            <a href="#" className="hover:text-white/70 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white/70 transition-colors">Terms</a>
-            <a href="#" className="hover:text-white/70 transition-colors">Accessibility</a>
-          </div>
+          <nav aria-label="Legal" className="flex items-center gap-6 text-[12px] text-white/70 font-medium">
+            <a href="/privacy" className="hover:text-white transition-colors">Privacy</a>
+            <a href="/terms" className="hover:text-white transition-colors">Terms</a>
+            <a href="/accessibility" className="hover:text-white transition-colors">Accessibility</a>
+          </nav>
         </div>
       </div>
     </footer>

@@ -57,7 +57,7 @@ section[id] { scroll-margin-top: 104px; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 500;
-  color: rgba(245,243,238,0.5);
+  color: rgba(245,243,238,0.7);
 }
 
 .text-brass { color: #C9A96A; }
@@ -163,7 +163,7 @@ a:focus-visible { outline-offset: 4px; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 500;
-  color: rgba(245,243,238,0.52);
+  color: rgba(245,243,238,0.7);
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -185,7 +185,7 @@ a:focus-visible { outline-offset: 4px; }
   border-radius: 0;
 }
 .field-input::placeholder,
-.field-textarea::placeholder { color: rgba(245,243,238,0.3); font-weight: 400; }
+.field-textarea::placeholder { color: rgba(245,243,238,0.6); font-weight: 400; }
 .field-input:focus,
 .field-select:focus,
 .field-textarea:focus { border-color: #C9A96A; }
