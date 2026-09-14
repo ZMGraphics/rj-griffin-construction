@@ -438,7 +438,7 @@ function Hero() {
 
           {/* Bottom whisper: single hairline credentials row */}
           <Reveal delay={0.28}>
-            <div className="mt-16 pt-6 border-t border-white/[0.12] lg:border-white/[0.05] flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] font-medium text-white/60 lg:text-white/45 text-center lg:text-left">
+            <div className="mt-16 pt-6 border-t border-white/[0.12] lg:border-white/[0.05] flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-[11px] font-medium text-white/60 lg:text-white/70 text-center lg:text-left">
               <span>Better Business Bureau Accredited</span>
               <span className="w-1 h-1 rounded-full bg-white/25" />
               <span>Licensed &amp; insured</span>
@@ -500,7 +500,7 @@ function TrustBadges() {
                 <span className="text-[#C9A96A] shrink-0 mt-0.5"><Icon name={b.icon} className="w-4 h-4" /></span>
                 <div>
                   <div className="font-display font-semibold text-white text-[15px] md:text-[16px] leading-tight tracking-[-0.01em]">{b.title}</div>
-                  <div className="text-[11px] tracking-[0.12em] uppercase text-white/45 mt-2 font-medium">{b.sub}</div>
+                  <div className="text-[11px] tracking-[0.12em] uppercase text-white/70 mt-2 font-medium">{b.sub}</div>
                 </div>
               </div>
             </Reveal>
@@ -688,10 +688,10 @@ function BeforeAfter() {
             </div>
 
             <figcaption className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-              <div className="text-[12px] text-white/50 font-medium">
+              <div className="text-[12px] text-white/70 font-medium">
                 Rochester sunroom · Refinished by R.J. Griffin
               </div>
-              <div className="text-[12px] text-white/45 font-medium">
+              <div className="text-[12px] text-white/70 font-medium">
                 Drag to compare · <span className="text-[#C9A96A]">{Math.round(pos)}%</span>
               </div>
             </figcaption>
@@ -809,7 +809,7 @@ function Gallery() {
               onClick={(e) => e.stopPropagation()}
               className="max-w-[92vw] max-h-[86vh] object-contain"
             />
-            <div className="absolute bottom-5 md:bottom-8 left-1/2 -translate-x-1/2 text-[11px] tracking-[0.14em] text-white/50 tabular font-medium">
+            <div className="absolute bottom-5 md:bottom-8 left-1/2 -translate-x-1/2 text-[11px] tracking-[0.14em] text-white/70 tabular font-medium">
               {String(lightbox + 1).padStart(2, '0')} / {String(GALLERY.length).padStart(2, '0')}
             </div>
           </motion.div>
@@ -833,7 +833,7 @@ function About() {
               <div className="relative aspect-[4/5] overflow-hidden hover-zoom">
                 <img src="/images/gallery/project-11.jpg" alt="R.J. Griffin project in Rochester NY" loading="lazy" className="w-full h-full object-cover" />
               </div>
-              <figcaption className="mt-4 flex items-center justify-between text-[11px] tracking-[0.12em] uppercase text-white/45 font-medium">
+              <figcaption className="mt-4 flex items-center justify-between text-[11px] tracking-[0.12em] uppercase text-white/70 font-medium">
                 <span>Recent project</span>
                 <span>Rochester, NY</span>
               </figcaption>
@@ -948,9 +948,9 @@ function Reviews() {
                 <div className="mt-10 pt-6 border-t border-white/[0.06] flex flex-wrap items-end justify-between gap-4">
                   <div>
                     <div className="font-display font-semibold text-white text-[15px] tracking-[-0.01em]">{r.author}</div>
-                    <div className="text-[11px] tracking-[0.12em] uppercase text-white/45 mt-2 font-medium">{r.project} · {r.location}</div>
+                    <div className="text-[11px] tracking-[0.12em] uppercase text-white/70 mt-2 font-medium">{r.project} · {r.location}</div>
                   </div>
-                  <div className="text-[11px] tracking-[0.12em] uppercase text-white/40 font-medium">
+                  <div className="text-[11px] tracking-[0.12em] uppercase text-white/70 font-medium">
                     Via <span className="text-[#C9A96A]">{r.source}</span>
                   </div>
                 </div>
@@ -1090,7 +1090,7 @@ function Contact() {
             <div className="mt-14 divide-y divide-white/[0.05] border-t border-white/[0.05] max-w-md">
               {Object.values(BUSINESS.contacts).map(c => (
                 <div key={c.name} className="py-6">
-                  <div className="text-[11px] tracking-[0.12em] uppercase text-white/45 font-medium">{c.role}</div>
+                  <div className="text-[11px] tracking-[0.12em] uppercase text-white/70 font-medium">{c.role}</div>
                   <div className="mt-2 flex items-baseline justify-between gap-4">
                     <div className="font-display font-semibold text-white text-[16px] tracking-[-0.015em]">{c.name}</div>
                     <a href={`tel:${c.tel}`} className="text-[#C9A96A] hover:text-white transition-colors text-[14px] tabular font-medium">{c.phone}</a>
@@ -1098,13 +1098,13 @@ function Contact() {
                 </div>
               ))}
               <div className="py-6">
-                <div className="text-[11px] tracking-[0.12em] uppercase text-white/45 font-medium">Email</div>
+                <div className="text-[11px] tracking-[0.12em] uppercase text-white/70 font-medium">Email</div>
                 <div className="mt-2">
                   <a href={`mailto:${BUSINESS.email}`} className="text-[#C9A96A] hover:text-white transition-colors text-[14px] break-all">{BUSINESS.email}</a>
                 </div>
               </div>
               <div className="py-6">
-                <div className="text-[11px] tracking-[0.12em] uppercase text-white/45 font-medium">Office</div>
+                <div className="text-[11px] tracking-[0.12em] uppercase text-white/70 font-medium">Office</div>
                 <div className="mt-2 text-white/70 text-[14px]">1753 Manitou Road, Spencerport, NY 14559</div>
               </div>
             </div>
@@ -1132,7 +1132,7 @@ function Contact() {
               </div>
 
               <div className="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-5 pt-4 border-t border-white/[0.07]">
-                <p className="text-[12px] text-white/45 font-medium">
+                <p className="text-[12px] text-white/70 font-medium">
                   We respond within 24 hrs · Mon–Fri, 7a–6p
                 </p>
                 <button
@@ -1250,7 +1250,7 @@ function Footer() {
               Serving the greater Rochester area. Kitchens, baths, additions,
               basement egress, and full home renovations.
             </p>
-            <div className="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[11px] text-white/40 font-medium">
+            <div className="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-[11px] text-white/70 font-medium">
               <span className="inline-flex items-center gap-2"><Icon name="shield" className="w-3.5 h-3.5 text-[#C9A96A]" /> BBB Accredited</span>
               <span className="w-1 h-1 bg-white/20 rounded-full" />
               <span>Fully insured</span>

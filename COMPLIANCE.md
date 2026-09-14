@@ -52,9 +52,17 @@ Standard (`~/zmg-compliance/README.md`) · Retrofit date: 2026-09-14
 | Input placeholder (index.css) | rgba(245,243,238,0.3) (~2.6:1) | 0.6 | ≈6.6:1 |
 | Brass #C9A96A (unchanged) | — | — | ≈8.8:1 (passes for small text too) |
 
-All adjusted pairs now exceed 4.5:1. Note: a few remaining muted labels in the
-app body still use white/40–white/50 (e.g. gallery/contact sub-labels); they were
-out of the retrofit scope list but should be raised in a future pass.
+All adjusted pairs now exceed 4.5:1.
+
+**Second pass (resolved):** all remaining readable body labels/captions/helper
+text that used `text-white/40`, `text-white/45`, or `text-white/50` were raised
+to `text-white/70` (≈9.7:1). This covered: TrustBadges sub-labels, before/after
+captions + "Drag to compare" helper, lightbox image counter, About figcaption,
+review project/location + "Via <source>" meta, contact role labels + Email/Office
+labels, contact form "respond within 24 hrs" helper, footer credential chips, and
+the `lg:text-white/45` credential-row variant. No sub-4.5:1 readable text remains
+in `RJGriffinSite.jsx`. Purely decorative elements (e.g. `bg-white/*` divider dots)
+were left unchanged.
 
 ## TO SUBSTANTIATE / CONFIRM (owner action required)
 
