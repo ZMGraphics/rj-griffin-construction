@@ -1,0 +1,129 @@
+/* Shared styles for R.J. Griffin Construction legal pages.
+   Linked (not inline) so it satisfies CSP style-src 'self'. */
+
+:root {
+  --bg: #0A0A0A;
+  --surface: #0F0F0F;
+  --text: #F5F3EE;
+  --muted: rgba(245, 243, 238, 0.72);
+  --rule: rgba(255, 255, 255, 0.10);
+  --brass: #C9A96A;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--brass);
+  color: #0A0A0A;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  z-index: 10;
+}
+.skip-link:focus { left: 0; }
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 5rem;
+}
+
+.topbar {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 0;
+}
+
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--brass);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+.home-link:hover { text-decoration: underline; }
+
+.eyebrow {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+h2 {
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  margin: 2.5rem 0 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.effective {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 2rem;
+}
+
+p, li { color: var(--muted); }
+
+a { color: var(--brass); }
+a:hover { color: var(--text); }
+
+ul { padding-left: 1.25rem; }
+li { margin-bottom: 0.5rem; }
+
+strong { color: var(--text); font-weight: 600; }
+
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+footer.legal-footer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  border-top: 1px solid var(--rule);
+  color: rgba(245, 243, 238, 0.72);
+  font-size: 13px;
+}
+footer.legal-footer a { font-weight: 500; }
+footer.legal-footer .legal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+}
