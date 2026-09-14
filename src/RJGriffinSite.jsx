@@ -65,7 +65,7 @@ const REVIEWS = [
     source: 'Facebook',
   },
   {
-    text: "RJ Griffin Construction just completed this accent wall, trim and cabinet install for our salon suite. They were quick, professional and their attention to detail is spot on. Contact them for any of your renovation needs — a full bathroom, a new kitchen, decks, or egress wells. These are your guys.",
+    text: "RJ Griffin Construction just completed this accent wall, trim and cabinet install for our salon suite. They were quick, professional and their attention to detail is spot on. Contact them for any of your renovation needs – a full bathroom, a new kitchen, decks, or egress wells. These are your guys.",
     author: 'CJ Cutaia',
     location: 'Salon suite build-out',
     project: 'Accent wall, trim & cabinets',
@@ -369,7 +369,7 @@ function Hero() {
           />
         </AnimatePresence>
 
-        {/* Mobile-only overlays — invisible above lg where image lives beside content */}
+        {/* Mobile-only overlays – invisible above lg where image lives beside content */}
         <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0A0A0A] pointer-events-none" />
         <div className="lg:hidden absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-black/15 pointer-events-none" />
 

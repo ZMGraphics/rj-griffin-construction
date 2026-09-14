@@ -1,7 +1,7 @@
 {
   "name": "rj-griffin-construction",
   "version": "1.0.0",
-  "description": "RJ Griffin Construction — Rochester, NY area's premier remodeling and construction contractor",
+  "description": "RJ Griffin Construction – Rochester, NY area's premier remodeling and construction contractor",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
