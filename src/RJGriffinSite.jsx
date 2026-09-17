@@ -79,6 +79,13 @@ const GALLERY = Array.from({ length: 16 }, (_, i) => ({
   alt: `R.J. Griffin Construction project ${i + 1}, Rochester NY remodel`,
 }));
 
+/* Masonry span pattern for the gallery grid (module-level, stable). */
+const GALLERY_SPANS = [
+  'row-span-2', '', '', 'col-span-2 row-span-2', '',
+  'row-span-2', '', '', '', 'col-span-2',
+  '', 'row-span-2', '', '', '', 'row-span-2',
+];
+
 const AREAS = ['Spencerport', 'Rochester', 'Brockport', 'Hilton', 'Greece', 'Chili', 'Gates', 'Pittsford', 'Fairport', 'Webster', 'Penfield', 'Henrietta', 'Irondequoit', 'Brighton', 'Monroe County'];
 
 const CAPABILITIES = ['Kitchens', 'Baths', 'Additions', 'Basement egress', 'Siding', 'Windows', 'Tile', 'Trim', 'Decks', 'Full renovations'];
@@ -743,12 +750,7 @@ function Gallery() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 auto-rows-[220px] md:auto-rows-[280px] gap-4 md:gap-5">
           {GALLERY.map((img, i) => {
-            const spans = [
-              'row-span-2', '', '', 'col-span-2 row-span-2', '',
-              'row-span-2', '', '', '', 'col-span-2',
-              '', 'row-span-2', '', '', '', 'row-span-2'
-            ];
-            const span = spans[i] || '';
+            const span = GALLERY_SPANS[i] || '';
             return (
               <Reveal key={img.src} delay={(i % 4) * 0.05} className={span}>
                 <button
