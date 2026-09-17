@@ -75,7 +75,7 @@ const REVIEWS = [
 ];
 
 const GALLERY = Array.from({ length: 16 }, (_, i) => ({
-  src: `/images/gallery/project-${String(i + 1).padStart(2, '0')}.jpg`,
+  src: `/images/gallery/project-${String(i + 1).padStart(2, '0')}.webp`,
   alt: `R.J. Griffin Construction project ${i + 1}, Rochester NY remodel`,
 }));
 
@@ -84,11 +84,11 @@ const AREAS = ['Spencerport', 'Rochester', 'Brockport', 'Hilton', 'Greece', 'Chi
 const CAPABILITIES = ['Kitchens', 'Baths', 'Additions', 'Basement egress', 'Siding', 'Windows', 'Tile', 'Trim', 'Decks', 'Full renovations'];
 
 const HERO_PROJECTS = [
-  { src: '/images/site/hero.jpg', caption: 'Custom kitchen · Rochester' },
-  { src: '/images/gallery/project-04.jpg', caption: 'Bath remodel · Fairport' },
-  { src: '/images/gallery/project-08.jpg', caption: 'Home addition · Pittsford' },
-  { src: '/images/gallery/project-11.jpg', caption: 'Full renovation · Rochester' },
-  { src: '/images/gallery/project-14.jpg', caption: 'Sunroom refinish · Rochester' },
+  { src: '/images/site/hero.webp', caption: 'Custom kitchen · Rochester' },
+  { src: '/images/gallery/project-04.webp', caption: 'Bath remodel · Fairport' },
+  { src: '/images/gallery/project-08.webp', caption: 'Home addition · Pittsford' },
+  { src: '/images/gallery/project-11.webp', caption: 'Full renovation · Rochester' },
+  { src: '/images/gallery/project-14.webp', caption: 'Sunroom refinish · Rochester' },
 ];
 
 /* ============================================================================
@@ -559,7 +559,7 @@ function Services() {
                 </a>
               </div>
               <div className="md:col-span-2 relative min-h-[320px] md:min-h-full hover-zoom overflow-hidden">
-                <img src="/images/gallery/project-05.jpg" alt="Basement egress installation" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                <img src="/images/gallery/project-05.webp" alt="Basement egress installation" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#0F0F0F]/40" />
               </div>
             </article>
@@ -657,12 +657,12 @@ function BeforeAfter() {
                 if (e.key === 'ArrowRight') setPos(p => Math.min(100, p + 5));
               }}
             >
-              <img src="/images/gallery/after.jpg" alt="After R.J. Griffin renovation" loading="lazy" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+              <img src="/images/gallery/after.webp" alt="After R.J. Griffin renovation" loading="lazy" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
               <div
                 className="absolute inset-0 overflow-hidden pointer-events-none"
                 style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
               >
-                <img src="/images/gallery/before.jpg" alt="Before R.J. Griffin renovation" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                <img src="/images/gallery/before.webp" alt="Before R.J. Griffin renovation" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
               </div>
 
               <div className="absolute top-5 left-5 px-3 py-1.5 bg-black/70 backdrop-blur">
@@ -831,7 +831,7 @@ function About() {
           <Reveal>
             <figure>
               <div className="relative aspect-[4/5] overflow-hidden hover-zoom">
-                <img src="/images/gallery/project-11.jpg" alt="R.J. Griffin project in Rochester NY" loading="lazy" className="w-full h-full object-cover" />
+                <img src="/images/gallery/project-11.webp" alt="R.J. Griffin project in Rochester NY" loading="lazy" className="w-full h-full object-cover" />
               </div>
               <figcaption className="mt-4 flex items-center justify-between text-[11px] tracking-[0.12em] uppercase text-white/70 font-medium">
                 <span>Recent project</span>
@@ -916,7 +916,7 @@ function Reviews() {
     >
       {/* Shield watermark */}
       <img
-        src="/logo/rjg-logo-full.png"
+        src="/logo/rjg-logo-full.webp"
         alt=""
         aria-hidden="true"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(80vw,700px)] max-w-none opacity-[0.035] pointer-events-none select-none"
@@ -1239,7 +1239,7 @@ function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20 pb-16 md:pb-24 border-b border-white/[0.05]">
           <div className="lg:col-span-6 flex flex-col items-center text-center lg:items-start lg:text-left">
             <img
-              src="/logo/rjg-logo-full.png"
+              src="/logo/rjg-logo-full.webp"
               alt="R.J. Griffin Construction"
               className="h-32 md:h-40 lg:h-44 w-auto lg:-ml-2"
             />

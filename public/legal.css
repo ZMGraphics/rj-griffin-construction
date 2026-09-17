@@ -1,6 +1,22 @@
 /* Shared styles for R.J. Griffin Construction legal pages.
    Linked (not inline) so it satisfies CSP style-src 'self'. */
 
+/* Self-hosted fonts (variable, all weights in one file) */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/inter-var-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('/fonts/geist-var-latin.woff2') format('woff2');
+}
+
 :root {
   --bg: #0A0A0A;
   --surface: #0F0F0F;
